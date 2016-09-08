@@ -1,0 +1,149 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 2015-sept-01, 14:04:08
+    Author     : arvid  
+*/
+
+.jumbotron {
+    background-image:url('/resources/images/pasta-and-Meatballs.jpg');
+    height: 200px;
+    background-repeat:no-repeat;
+    background-size:cover;
+}
+
+.jumbotron .container {
+    position:relative;
+    top:40px;
+    text-align: center;
+}
+
+.jumbotron h1 {
+    color: #fff;
+    font-size: 32px;
+    font-family: sans-serif;
+    font-weight: bold;
+}
+
+.nav .container{
+    width: 100%;
+    text-align: center;
+}
+
+.nav a {
+    color: #5a5a5a;
+    font-size: 26px;
+    font-weight: bold;
+    text-transform:uppercase;
+    margin-left: 5px;
+    margin-right: 5px;
+    text-decoration: none;
+}
+
+.nav li {
+   background: #fff;
+   padding: 5px 10px;
+   display: inline-block;
+   transition: background .25s ease-in-out;
+   -moz-transition: background .25s ease-in-out;
+   -webkit-transition: background .25s ease-in-out;
+   }
+
+.nav li:hover {
+      background: #efefef;
+}
+
+.recipes-list {
+    background-color: #efefef;
+    border-bottom: 1px solid #dbdbdb;
+}
+
+.recipes-list h2 {
+    color: #393c3d;
+    font-size: 24px;
+}
+
+.recipes-list p {
+    font-size: 15px;
+    margin-bottom: 13px;
+}
+
+.cal-container {
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-bottom: 1em;
+}
+
+.row:before {
+    display: table;
+    content: " ";
+}
+
+.grid-calendar {
+    min-width: 320px;
+}
+.grid-calendar .row {
+  margin: 0;
+}
+.grid-calendar .calendar-week .grid-cell{
+    background-color: #f6f6f6;
+    border: 1px solid #fff;
+    transition: background .25s ease-in-out;
+   -moz-transition: background .25s ease-in-out;
+   -webkit-transition: background .25s ease-in-out;
+}
+
+.grid-calendar .calendar-week .grid-cell div:hover {
+      background: #A9AAAD;
+}
+
+.grid-calendar .calendar-week-header .grid-cell > div > div {
+    padding-bottom: 10px;
+    height: auto;
+}
+.grid-calendar .grid-cell {
+    display: inline-block;
+    float: left;
+    min-height: 1px;
+    padding: 0;
+    position: relative;
+    width: 14.28571%;
+}
+
+.grid-calendar .grid-cell.previous-month {
+    color: #a6a6a6;
+}
+.grid-calendar .grid-cell.next-month {
+    background-color: #e1e1e1;
+}
+.grid-calendar .grid-cell > div {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+.grid-calendar .grid-cell > div > div {
+    height: 0;
+    padding: 50% 0;
+}
+
+.other-recipes {
+    background-color: #f7f7f7;
+}
+
+.other-recipes h3 {
+    font-family: 'Shift', sans-serif;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.other-recipes h4{
+    background-color: white;
+    font-family: 'Shift', sans-serif;
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+}
