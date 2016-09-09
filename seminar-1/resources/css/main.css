@@ -9,7 +9,7 @@ and open the template in the editor.
 */
 
 .jumbotron {
-    background-image:url('/resources/images/pasta-and-Meatballs.jpg');
+    background-image:url("../images/pasta-and-Meatballs.jpg");
     height: 200px;
     background-repeat:no-repeat;
     background-size:cover;
@@ -26,6 +26,7 @@ and open the template in the editor.
     font-size: 32px;
     font-family: sans-serif;
     font-weight: bold;
+    text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
 }
 
 .nav .container{
