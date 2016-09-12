@@ -60,6 +60,7 @@ and open the template in the editor.
 .recipes-list {
     background-color: #efefef;
     border-bottom: 1px solid #dbdbdb;
+    border-top: 1px solid #dbdbdb;
 }
 
 .recipes-list h2 {
@@ -68,6 +69,23 @@ and open the template in the editor.
 }
 
 .recipes-list p {
+    font-size: 15px;
+    margin-bottom: 13px;
+}
+
+.login-style {
+    padding-top: 15px;
+    background-color: #efefef;
+    border-bottom: 1px solid #dbdbdb;
+    border-top: 1px solid #dbdbdb;
+}
+
+.login-style h2 {
+    color: #393c3d;
+    font-size: 24px;
+}
+
+.login-style p {
     font-size: 15px;
     margin-bottom: 13px;
 }
@@ -147,4 +165,18 @@ and open the template in the editor.
     font-size: 24px;
     font-weight: bold;
     text-align: center;
+}
+
+.signup-style {
+  position: relative;
+  display: block;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.signup-style label {
+  min-height: 20px;
+  padding-left: 20px;
+  margin-bottom: 0;
+  font-weight: normal;
 }
