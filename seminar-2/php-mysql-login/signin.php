@@ -1,3 +1,40 @@
+<?php
+
+# Disable error reporting
+error_reporting(E_ALL & ~E_NOTICE);
+session_start();
+
+# If user presses submit
+if ($_POST['submit']) {
+
+    include_once("connection.php");
+    $username = strip_tags($_POST['username']);
+    $password = strip_tags($_POST['password']);
+
+    # This is the database query
+    $sql = "SELECT id, username, password FROM members WHERE username = '$username'";
+    $query = mysqli_query($dbCon, $sql);
+
+    if ($query) {
+
+        $row = mysqli_fetch_row($query);
+        $userId = $row[0];
+        $dbUsername = $row[1];
+        $dbPassword = $row[2];
+    }
+
+
+    if ($username == $dbUsername && $password == $dbPassword) {
+
+        $_SESSION['username'] = $username;
+        $_SESSION['id'] = $userId;
+        header('Location: ../index.php');
+    }
+
+}
+
+?>
+
 <!DOCTYPE html>
 <!--
 
@@ -14,10 +51,10 @@ and open the template in the editor.
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <link rel="stylesheet" href="resources/css/reset.css">
-    <link rel="stylesheet" href="resources/css/shift.css">
-    <link rel="stylesheet" href="resources/css/bootstrap.css">
-    <link rel="stylesheet" href="resources/css/main.css">
+    <link rel="stylesheet" href="../resources/css/reset.css">
+    <link rel="stylesheet" href="../resources/css/shift.css">
+    <link rel="stylesheet" href="../resources/css/bootstrap.css">
+    <link rel="stylesheet" href="../resources/css/main.css">
 </head>
 <body>
     <div class="jumbotron">
@@ -28,8 +65,8 @@ and open the template in the editor.
     <div class="nav">
         <div class="container">
             <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="calendar.html">Calendar</a></li>
+                <li><a href="../index.php">Home</a></li>
+                <li><a href="../calendar.php">Calendar</a></li>
                 <li><a href="signin.php">Sign In</a></li>
             </ul>
         </div>
@@ -43,7 +80,7 @@ and open the template in the editor.
 			    	<h3 class="panel-title">Please sign in</h3>
 			 	</div>
 			  	<div class="panel-body">
-			    	<form accept-charset="UTF-8" role="form">
+			    	<form accept-charset="UTF-8" role="form" method="post" action="signin.php">
                     <fieldset>
 			    	  	<div class="form-group">
 			    		    <input class="form-control" placeholder="Username" name="username" type="text">
@@ -56,7 +93,7 @@ and open the template in the editor.
 			    	    		Don't have an account? <a href="signup.php">Sign up</a>
 			    	    	</label>
 			    	    </div>
-			    		<input class="btn btn-lg btn-success btn-block" type="submit" value="Login">
+			    		<input class="btn btn-lg btn-success btn-block" type="submit" name="submit" value="Login">
 			    	</fieldset>
 			      	</form>
 			    </div>

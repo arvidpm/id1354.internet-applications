@@ -1,3 +1,11 @@
+<?php
+
+# Disable error reporting
+error_reporting(E_ALL & ~E_NOTICE);
+session_start();
+
+?>
+
 <!DOCTYPE html>
 <!--
 
@@ -28,9 +36,9 @@ and open the template in the editor.
     <div class="nav">
         <div class="container">
             <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="calendar.html">Calendar</a></li>
-                <li><a href="signin.php">Sign In</a></li>
+                <li><a href="index.php">Home</a></li>
+                <li><a href="calendar.php">Calendar</a></li>
+                <li><a href="php-mysql-login/signin.php">Sign In</a></li>
             </ul>
         </div>
     </div>
@@ -42,11 +50,11 @@ and open the template in the editor.
             <div class="row">
                 <div class="col-md-4">
                     <div class="thumbnail">
-                        <a href="meatballs.html"><img src="resources/images/Turkey-meatballs.jpg" alt="Meatballs page"></a>
+                        <a href="recipes/meatballs.php"><img src="resources/images/Turkey-meatballs.jpg" alt="Meatballs page"></a>
                         <div class="other-recipes"><h4>Turkey Meatballs</h4></div>
                     </div>
                     <div class="thumbnail">
-                        <a href="pancakes.html"><img src="resources/images/AppleOatPancakes_DT.jpg" alt="Pancakes page"></a>
+                        <a href="recipes/pancakes.php"><img src="resources/images/AppleOatPancakes_DT.jpg" alt="Pancakes page"></a>
                         <div class="other-recipes"><h4>Honey-Oatmeal Pancakes</h4></div>
                     </div>
                 </div>

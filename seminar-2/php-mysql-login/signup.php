@@ -14,10 +14,10 @@ and open the template in the editor.
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <link rel="stylesheet" href="resources/css/reset.css">
-    <link rel="stylesheet" href="resources/css/shift.css">
-    <link rel="stylesheet" href="resources/css/bootstrap.css">
-    <link rel="stylesheet" href="resources/css/main.css">
+    <link rel="stylesheet" href="../resources/css/reset.css">
+    <link rel="stylesheet" href="../resources/css/shift.css">
+    <link rel="stylesheet" href="../resources/css/bootstrap.css">
+    <link rel="stylesheet" href="../resources/css/main.css">
 </head>
 <body>
     <div class="jumbotron">
@@ -28,8 +28,8 @@ and open the template in the editor.
     <div class="nav">
         <div class="container">
             <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="calendar.html">Calendar</a></li>
+                <li><a href="../index.php">Home</a></li>
+                <li><a href="../calendar.php">Calendar</a></li>
                 <li><a href="signin.php">Sign In</a></li>
             </ul>
         </div>

@@ -1,3 +1,11 @@
+<?php
+
+# Disable error reporting
+error_reporting(E_ALL & ~E_NOTICE);
+session_start();
+
+?>
+
 <!DOCTYPE html>
 <!--
 
@@ -14,11 +22,11 @@ and open the template in the editor.
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <link rel="stylesheet" href="resources/css/reset.css">
-    <link rel="stylesheet" href="resources/css/shift.css">
-    <link rel="stylesheet" href="resources/css/bootstrap.css">
-    <link rel="stylesheet" href="resources/css/main.css">
-    <link rel="stylesheet" href="resources/css/recipes.css">
+    <link rel="stylesheet" href="../resources/css/reset.css">
+    <link rel="stylesheet" href="../resources/css/shift.css">
+    <link rel="stylesheet" href="../resources/css/bootstrap.css">
+    <link rel="stylesheet" href="../resources/css/main.css">
+    <link rel="stylesheet" href="../resources/css/recipes.css">
 </head>
 <body>
     <div class="jumbotron">
@@ -29,9 +37,9 @@ and open the template in the editor.
     <div class="nav">
         <div class="container">
             <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="calendar.html">Calendar</a></li>
-                <li><a href="signin.php">Sign In</a></li>
+                <li><a href="../index.php">Home</a></li>
+                <li><a href="../calendar.php">Calendar</a></li>
+                <li><a href="../php-mysql-login/signin.php">Sign In</a></li>
             </ul>
         </div>
     </div>
@@ -41,7 +49,7 @@ and open the template in the editor.
             <div class="row">
                 <div class="col-md-3">
                     <div class="thumbnail">
-                        <a href=""><img src="resources/images/AppleOatPancakes_DT.jpg" alt="Pancakes page"></a>
+                        <a href=""><img src="../resources/images/AppleOatPancakes_DT.jpg" alt="Pancakes page"></a>
                     </div>
                     <h4>Ingredients</h4>
                     <ul>
@@ -95,19 +103,19 @@ and open the template in the editor.
                     <div class="col-md-2">
                         <h3>Turkey Meatballs</h3>
                         <div class="thumbnail">
-                        <a href="meatballs.html"><img src="resources/images/Turkey-meatballs.jpg" alt="Meatballs page"></a>
+                        <a href="meatballs.php"><img src="../resources/images/Turkey-meatballs.jpg" alt="Meatballs page"></a>
                         </div>
                     </div>
                 <div class="col-md-2">
                     <h3>Icecream</h3>
                     <div class="thumbnail">
-                        <a href=""><img src="resources/images/icecream.jpg" alt="Colorful Icecream"></a>
+                        <a href=""><img src="../resources/images/icecream.jpg" alt="Colorful Icecream"></a>
                     </div>
                 </div>
                 <div class="col-md-2">
                     <h3>BLT Sandwich</h3>
                     <div class="thumbnail">
-                        <a href=""><img src="resources/images/ultimate_BLT_sandwich.jpg" alt="Gorgeous BLT Sandwich"></a>
+                        <a href=""><img src="../resources/images/ultimate_BLT_sandwich.jpg" alt="Gorgeous BLT Sandwich"></a>
                     </div>
                 </div>
             </div>
