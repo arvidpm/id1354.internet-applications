@@ -1,3 +1,30 @@
+<?php
+
+# Disable error reporting
+error_reporting(E_ALL & ~E_NOTICE);
+session_start();
+
+# If user presses submit
+if ($_POST['submit']) {
+
+    include_once("connection.php");
+    $username = strip_tags($_POST['username']);
+    $password = strip_tags($_POST['password']);
+
+    # This is the database query
+    $sql = "INSERT INTO members (id, username, password) VALUES ($username,$password)";
+    $query = mysqli_query($dbCon, $sql);
+
+    if ($query) {
+        header('Location: success.php');
+    } else {
+        header('Location: failed.php');
+    }
+
+}
+
+?>
+
 <!DOCTYPE html>
 <!--
 
@@ -43,7 +70,7 @@ and open the template in the editor.
 			    	<h3 class="panel-title">Register user</h3>
 			 	</div>
 			  	<div class="panel-body">
-			    	<form accept-charset="UTF-8" role="form">
+                    <form accept-charset="UTF-8" role="form" method="post" action="signup.php">
                     <fieldset>
 			    	  	<div class="form-group">
 			    		    <input class="form-control" placeholder="Choose your username" name="username" type="text">
@@ -51,7 +78,7 @@ and open the template in the editor.
 			    		<div class="form-group">
 			    			<input class="form-control" placeholder="Choose a strong password" name="password" type="password" value="">
                         </div>
-			    		<input class="btn btn-lg btn-success btn-block" type="submit" value="Register">
+			    		<input class="btn btn-lg btn-success btn-block" type="submit" name="submit" value="Register">
 			    	</fieldset>
 			      	</form>
 			    </div>
