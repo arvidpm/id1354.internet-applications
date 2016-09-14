@@ -1,10 +1,15 @@
 <?php
 
-# Establish connection to a local database
-$dbCon = mysqli_connect("localhost", "root", "password", "id1354") OR die();
+$servername = "localhost";
+$username = "root";
+$password = "password";
+$dbname = "id1354";
 
-if (mysqli_connect_errno()) {
-    echo "Failed to connect" . mysqli_connect_error();
+# Establish connection to a local database
+$dbCon = mysqli_connect($servername, $username, $password, $dbname);
+
+if ($dbCon->connect_error) {
+    die("Connection failed: " . $dbCon->connect_error);
 }
 
 ?>

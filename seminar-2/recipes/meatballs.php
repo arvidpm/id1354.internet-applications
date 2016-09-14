@@ -25,6 +25,8 @@ and open the template in the editor.
     <link rel="stylesheet" href="../resources/css/bootstrap.css">
     <link rel="stylesheet" href="../resources/css/main.css">
     <link rel="stylesheet" href="../resources/css/recipes.css">
+    <link rel="stylesheet" href="../resources/css/commentbox.css">
+
 </head>
 <body>
     <div class="jumbotron">
@@ -82,34 +84,48 @@ and open the template in the editor.
                     <p>Transfer the meatball mixture to a serving bowl. Serve with toothpicks.</p>
                 </div>
                 <div class="col-md-4">
-                    <h4>User Comments</h4>
+                    <div class="detailBox">
+                        <div class="titleBox">
+                            <label>Recipe comments</label>
+                        </div>
+                        <div class="actionBox">
+                            <ul class="commentList">
+                                <li>
+                                    <div class="commenterImage">
+                                        <img src="../resources/images/comment_placeholder.jpg" />
+                                    </div>
+                                    <div class="commentText">
+                                        <p class="">Hello this is a test comment.</p><span class="date sub-text">Delete comment</span>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="commenterImage">
+                                        <img src="../resources/images/comment_placeholder.jpg" />
+                                    </div>
+                                    <div class="commentText">
+                                        <p class="">Hello this is a test comment. Hello this is a test comment. Hello this is a test comment. Hello this is a test comment. Hello this is a test comment. Hello this is a test comment. </p><span class="date sub-text">Delete comment</span>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="commenterImage">
+                                        <img src="../resources/images/comment_placeholder.jpg" />
+                                    </div>
+                                    <div class="commentText">
+                                        <p class="">Hello this is a test comment. Hello this is a test comment. Hello this is a test comment. </p><span class="date sub-text">Delete comment</span>
 
-
-                    <?php
-                    include_once("../php-mysql-login/connection.php");
-
-                    # This is the database query
-                    $sql = "SELECT * FROM comments";
-                    $query = mysqli_query($dbCon, $sql);
-
-                    while ( $row = mysqli_fetch_row($query)) {
-                        $comments = $row[2];
-
-                        echo '<p>'. $comments .'</p>';
-                        echo 'test';
-                    }
-
-
-                    ?>
-                   <!-- <table class="commentbox">
-                    <tr><td>Name: <br><input type="text" name="name"/></td></tr>
-                    <tr><td colspan="1">Comment:</td></tr>
-                    <tr><td colspan="1"><textarea name="comment" rows="3" cols="40"></textarea></td></tr>
-                    <tr><td colspan="1"><input type="submit" name="submit" value="Comment"></td></tr>
-                        <tr><td colspan="1">10.15: Kommentar 1, testar hårdkodade kommentarer på meatballs-sidan!</td></tr>
-                        <tr><td colspan="1">10.16: Kommentar 2</td></tr>
-                        <tr><td colspan="1">10.17: Kommentar 3</td></tr>
-                </table>-->
+                                    </div>
+                                </li>
+                            </ul>
+                            <form class="form-inline" role="form">
+                                <div class="form-group">
+                                    <input class="form-control" type="text" placeholder="Your comments" />
+                                </div>
+                                <div class="form-group">
+                                    <button class="btn btn-default">Post</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
                 </div>                
             </div>
         </div>

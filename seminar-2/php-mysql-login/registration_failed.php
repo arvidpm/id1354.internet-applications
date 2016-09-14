@@ -47,7 +47,7 @@ include_once("session_start.php");
             <div class="col-md-4 col-md-offset-4">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <h3 class="panel-title">Registration failed :(</h3>
+                        <h3 class="panel-title">Registration failed!</h3>
                     </div>
                     <div class="panel-body">
                         <p>Try creating a new user account <a href="signup.php">here</a></p>

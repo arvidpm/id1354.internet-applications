@@ -7,6 +7,7 @@
  */
 
 include_once("session_start.php");
+$username = $_SESSION['username'];
 
 ?>
 
@@ -17,6 +18,7 @@ include_once("session_start.php");
     <title>Tasty Recipes - Successful registration</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="refresh" content="3;url=signin.php" />
 
     <link rel="stylesheet" href="../resources/css/reset.css">
     <link rel="stylesheet" href="../resources/css/shift.css">
@@ -47,10 +49,10 @@ include_once("session_start.php");
             <div class="col-md-4 col-md-offset-4">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <h3 class="panel-title">Registration successful :)</h3>
+                        <h3 class="panel-title">Registration successful!</h3>
                     </div>
                     <div class="panel-body">
-                        <p>User registration successful! Please login <a href="signin.php">here</a></p>
+                        <p>Welcome <?php echo $username; ?>! Redirecting in 3 seconds...</p>
                     </div>
                 </div>
             </div>
