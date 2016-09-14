@@ -1,13 +1,12 @@
 <?php
 
-# Disable error reporting
-error_reporting(E_ALL & ~E_NOTICE);
+include_once("session_start.php");
 
-# Start and destroy session
-session_start();
+# Destroy session
 session_destroy();
 
 ?>
+
 
 <!DOCTYPE html>
 <!--

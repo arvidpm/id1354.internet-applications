@@ -6,11 +6,7 @@
  * Time: 10:59
  */
 
-# Disable error reporting
-error_reporting(E_ALL & ~E_NOTICE);
-
-# Start session
-session_start();
+include_once("session_start.php");
 
 ?>
 

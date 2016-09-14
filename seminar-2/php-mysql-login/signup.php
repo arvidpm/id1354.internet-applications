@@ -1,10 +1,13 @@
 <?php
 
-# Disable error reporting
-error_reporting(E_ALL & ~E_NOTICE);
+/**
+ * Created by PhpStorm.
+ * User: arvid
+ * Date: 2016-09-14
+ * Time: 10:59
+ */
 
-# Start session
-session_start();
+include_once("session_start.php");
 
 # If user presses submit
 if ($_POST['submit']) {
