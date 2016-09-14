@@ -39,6 +39,7 @@ session_start();
             <li><a href="../index.php">Home</a></li>
             <li><a href="../calendar.php">Calendar</a></li>
             <li><a href="signin.php">Sign In</a></li>
+            <li><a href="logout.php">Log out</a></li>
         </ul>
     </div>
 </div>

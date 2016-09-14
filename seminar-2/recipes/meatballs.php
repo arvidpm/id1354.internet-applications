@@ -42,6 +42,7 @@ and open the template in the editor.
                 <li><a href="../index.php">Home</a></li>
                 <li><a href="../calendar.php">Calendar</a></li>
                 <li><a href="../php-mysql-login/signin.php">Sign In</a></li>
+                <li><a href="../php-mysql-login/logout.php">Log out</a></li>
             </ul>
         </div>
     </div>

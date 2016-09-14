@@ -60,6 +60,7 @@ and open the template in the editor.
                 <li><a href="../index.php">Home</a></li>
                 <li><a href="../calendar.php">Calendar</a></li>
                 <li><a href="signin.php">Sign In</a></li>
+                <li><a href="logout.php">Log out</a></li>
             </ul>
         </div>
     </div>
@@ -78,7 +79,7 @@ and open the template in the editor.
 			    		    <input class="form-control" placeholder="Choose your username" name="username" type="text">
 			    		</div>
 			    		<div class="form-group">
-			    			<input class="form-control" placeholder="Choose a strong password" name="password" type="password" value="">
+			    			<input class="form-control" placeholder="Choose a strong password" name="password" type="password">
                         </div>
 			    		<input class="btn btn-lg btn-success btn-block" type="submit" name="submit" value="Register">
 			    	</fieldset>

@@ -1,26 +1,30 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: arvid
- * Date: 2016-09-14
- * Time: 10:59
- */
 
 # Disable error reporting
 error_reporting(E_ALL & ~E_NOTICE);
 
-# Start session
+# Start and destroy session
 session_start();
+session_destroy();
 
 ?>
 
 <!DOCTYPE html>
+<!--
 
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+
+    Created on : 2016-sept-12, 18:04:08
+    Author     : arvid
+-->
 <html lang="en">
 <head>
-    <title>Tasty Recipes - Failed registration</title>
+    <title>Tasty Recipes - Log out</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="refresh" content="3;url=../index.php" />
 
     <link rel="stylesheet" href="../resources/css/reset.css">
     <link rel="stylesheet" href="../resources/css/shift.css">
@@ -48,11 +52,10 @@ session_start();
         <div class="row">
             <div class="col-md-4 col-md-offset-4">
                 <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h3 class="panel-title">Registration failed :(</h3>
-                    </div>
                     <div class="panel-body">
-                        <p>Try creating a new user account <a href="signup.php">here</a></p>
+                        <div class="panel-body">
+                            <p>Logged out! Redirecting in 3 seconds...</p>
+                        </div>
                     </div>
                 </div>
             </div>
