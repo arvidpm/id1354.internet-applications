@@ -2,6 +2,8 @@
 
 # Disable error reporting
 error_reporting(E_ALL & ~E_NOTICE);
+
+# Start session
 session_start();
 
 ?>
@@ -18,7 +20,7 @@ and open the template in the editor.
 -->
 <html lang="en">
 <head>
-    <title>Tasty Recipes - Pancakes</title>
+    <title>Tasty Recipes - Pancakes recipe</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     

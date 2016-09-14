@@ -2,6 +2,8 @@
 
 # Disable error reporting
 error_reporting(E_ALL & ~E_NOTICE);
+
+# Start session
 session_start();
 
 # If user presses submit
@@ -12,7 +14,7 @@ if ($_POST['submit']) {
     $password = strip_tags($_POST['password']);
 
     # This is the database query
-    $sql = "INSERT INTO members (id, username, password) VALUES ($username,$password)";
+    $sql = "INSERT INTO members (username, password) VALUES ('$username','$password')";
     $query = mysqli_query($dbCon, $sql);
 
     if ($query) {
@@ -37,7 +39,7 @@ and open the template in the editor.
 -->
 <html lang="en">
 <head>
-    <title>Tasty Recipes - Home</title>
+    <title>Tasty Recipes - User registration</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     

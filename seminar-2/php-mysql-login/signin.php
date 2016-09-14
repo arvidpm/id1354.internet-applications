@@ -2,6 +2,8 @@
 
 # Disable error reporting
 error_reporting(E_ALL & ~E_NOTICE);
+
+# Start session
 session_start();
 
 # If user presses submit
@@ -47,7 +49,7 @@ and open the template in the editor.
 -->
 <html lang="en">
 <head>
-    <title>Tasty Recipes - Home</title>
+    <title>Tasty Recipes - Sign in</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
