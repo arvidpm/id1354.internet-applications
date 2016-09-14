@@ -31,6 +31,8 @@ if ($_POST['submit']) {
         $_SESSION['username'] = $username;
         $_SESSION['id'] = $userId;
         header('Location: ../index.php');
+    } else {
+        header('Location: signin_failed.php');
     }
 
 }

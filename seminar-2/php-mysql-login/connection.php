@@ -1,5 +1,6 @@
 <?php
 
+# Establish connection to a local database
 $dbCon = mysqli_connect("localhost", "root", "password", "id1354");
 
 if (mysqli_connect_errno()) {

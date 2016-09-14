@@ -3,7 +3,7 @@
  * Created by PhpStorm.
  * User: arvid
  * Date: 2016-09-14
- * Time: 10:59
+ * Time: 12:12
  */
 
 # Disable error reporting
@@ -18,7 +18,7 @@ session_start();
 
 <html lang="en">
 <head>
-    <title>Tasty Recipes - Successful registration</title>
+    <title>Tasty Recipes - Unsuccessful signin</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -48,10 +48,10 @@ session_start();
             <div class="col-md-4 col-md-offset-4">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <h3 class="panel-title">Registration successful :)</h3>
+                        <h3 class="panel-title">Ooops, something went wrong!</h3>
                     </div>
                     <div class="panel-body">
-                        <p>User registration successful! Please login <a href="signin.php">here</a></p>
+                        <p>Incorrect username or password! <a href="signin.php">Try again</a></p>
                     </div>
                 </div>
             </div>

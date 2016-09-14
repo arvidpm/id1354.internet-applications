@@ -18,9 +18,9 @@ if ($_POST['submit']) {
     $query = mysqli_query($dbCon, $sql);
 
     if ($query) {
-        header('Location: success.php');
+        header('Location: registration_success.php');
     } else {
-        header('Location: failed.php');
+        header('Location: registration_failed.php');
     }
 
 }
