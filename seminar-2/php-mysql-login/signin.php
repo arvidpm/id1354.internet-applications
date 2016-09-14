@@ -14,7 +14,7 @@ if ($_POST['submit']) {
     $password = strip_tags($_POST['password']);
 
     # This is the database query
-    $sql = "SELECT id, username, password FROM members WHERE username = '$username'";
+    $sql = "SELECT * FROM members WHERE username = '$username' LIMIT 1";
     $query = mysqli_query($dbCon, $sql);
 
     if ($query) {
@@ -72,7 +72,9 @@ and open the template in the editor.
                 <li><a href="../index.php">Home</a></li>
                 <li><a href="../calendar.php">Calendar</a></li>
                 <li><a href="signin.php">Sign In</a></li>
-                <li><a href="logout.php">Log out</a></li>
+                <?php if(isset($_SESSION['id']) ){
+                    echo '<li><a href="logged_out.php">Log out</a></li>';
+                } ?>
             </ul>
         </div>
     </div>

@@ -21,7 +21,7 @@ and open the template in the editor.
 -->
 <html lang="en">
 <head>
-    <title>Tasty Recipes - Log out</title>
+    <title>Tasty Recipes - Logged out</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="refresh" content="3;url=../index.php" />
@@ -43,7 +43,12 @@ and open the template in the editor.
             <li><a href="../index.php">Home</a></li>
             <li><a href="../calendar.php">Calendar</a></li>
             <li><a href="signin.php">Sign In</a></li>
-            <li><a href="logout.php">Log out</a></li>
+            <?php if(isset($_SESSION['id']) ){
+
+                $username = $_SESSION['username'];
+                echo '<li><a href="logged_out.php">Log out</a></li>';
+            }
+            ?>
         </ul>
     </div>
 </div>
@@ -54,7 +59,7 @@ and open the template in the editor.
                 <div class="panel panel-default">
                     <div class="panel-body">
                         <div class="panel-body">
-                            <p>Logged out! Redirecting in 3 seconds...</p>
+                            <p>Goodbye <?php echo $username; ?>! Redirecting in 3 seconds...</p>
                         </div>
                     </div>
                 </div>

@@ -60,7 +60,9 @@ and open the template in the editor.
                 <li><a href="../index.php">Home</a></li>
                 <li><a href="../calendar.php">Calendar</a></li>
                 <li><a href="signin.php">Sign In</a></li>
-                <li><a href="logout.php">Log out</a></li>
+                <?php if(isset($_SESSION['id']) ){
+                    echo '<li><a href="logged_out.php">Log out</a></li>';
+                } ?>
             </ul>
         </div>
     </div>

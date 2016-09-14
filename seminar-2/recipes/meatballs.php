@@ -42,7 +42,9 @@ and open the template in the editor.
                 <li><a href="../index.php">Home</a></li>
                 <li><a href="../calendar.php">Calendar</a></li>
                 <li><a href="../php-mysql-login/signin.php">Sign In</a></li>
-                <li><a href="../php-mysql-login/logout.php">Log out</a></li>
+                <?php if(isset($_SESSION['id']) ){
+                    echo '<li><a href="../php-mysql-login/logged_out.php">Log out</a></li>';
+                } ?>
             </ul>
         </div>
     </div>
@@ -85,7 +87,25 @@ and open the template in the editor.
                 </div>
                 <div class="col-md-4">
                     <h4>User Comments</h4>
-                    <table class="commentbox">
+
+
+                    <?php
+                    include_once("../php-mysql-login/connection.php");
+
+                    # This is the database query
+                    $sql = "SELECT * FROM comments";
+                    $query = mysqli_query($dbCon, $sql);
+
+                    while ( $row = mysqli_fetch_row($query)) {
+                        $comments = $row[2];
+
+                        echo '<p>'. $comments .'</p>';
+                        echo 'test';
+                    }
+
+
+                    ?>
+                   <!-- <table class="commentbox">
                     <tr><td>Name: <br><input type="text" name="name"/></td></tr>
                     <tr><td colspan="1">Comment:</td></tr>
                     <tr><td colspan="1"><textarea name="comment" rows="3" cols="40"></textarea></td></tr>
@@ -93,7 +113,7 @@ and open the template in the editor.
                         <tr><td colspan="1">10.15: Kommentar 1, testar hårdkodade kommentarer på meatballs-sidan!</td></tr>
                         <tr><td colspan="1">10.16: Kommentar 2</td></tr>
                         <tr><td colspan="1">10.17: Kommentar 3</td></tr>
-                </table>
+                </table>-->
                 </div>                
             </div>
         </div>
