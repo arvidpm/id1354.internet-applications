@@ -102,63 +102,67 @@ and open the template in the editor.
                                 <?php
 
                                 # Query for getting comments table data
-                                $comments_query = "SELECT * FROM comments";
+                                $comments_query = "SELECT * FROM comments WHERE page = '0'";
                                 $comments_result = mysqli_query($dbCon, $comments_query);
 
                                 while ($row = mysqli_fetch_array($comments_result)) {
+                                    $id = $row[0];
                                     $user = $row[1];
                                     $comment = $row[2];
 
                                     # Query for getting username related to comment
                                     $user_query = "SELECT username FROM id1354.members WHERE id = '$user' LIMIT 1";
                                     $user_result = mysqli_query($dbCon, $user_query);
-                                    $row1 = mysqli_fetch_array($user_result);
+                                    $current_user = mysqli_fetch_array($user_result);
 
+                                    # Printing comments
                                     echo
 
                                     '<li>
                                         <div class="commenterImage">
-                                            <img src="../resources/images/comment_placeholder.jpg" />
-                                        </div>
-                                        <div class="commentText">
-                                            <p class="">'. $comment .'</p><span class="date sub-text">'. $row1['username'] .'</span>
+                                            <img src="../resources/images/comment_placeholder.jpg" />';
+
+                                    if ($user === $_SESSION['id']) {
+                                        echo '<a href="../php-mysql-login/delete_comment.php?del='.$id.' " target="_blank"><img src="../resources/images/trashcan.png" alt="trashcan icon"></a>';
+                                    }
+
+                                    echo
+                                        '</div>
+                                        <div class="commentText">                                           
+                                            <p class="">'. $comment . '</p>
+                                            <span class="date sub-text">'. $current_user['username'] .'</span>
                                         </div>
                                     </li>';
                                 }
-
                                 ?>
 
-                                <li>
-                                    <div class="commenterImage">
-                                        <img src="../resources/images/comment_placeholder.jpg" />
-                                    </div>
-                                    <div class="commentText">
-                                        <p class="">Hello this is a test comment. Hello this is a test comment. Hello this is a test comment. Hello this is a test comment. Hello this is a test comment. Hello this is a test comment. </p><span class="date sub-text">Delete comment</span>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="commenterImage">
-                                        <img src="../resources/images/comment_placeholder.jpg" />
-                                    </div>
-                                    <div class="commentText">
-                                        <p class="">Hello this is a test comment. Hello this is a test comment. Hello this is a test comment. </p><span class="date sub-text">Delete comment</span>
-
-                                    </div>
-                                </li>
-
-
-
-
-
                             </ul>
+
                             <form class="form-inline" role="form">
-                                <div class="form-group">
-                                    <input class="form-control" type="text" placeholder="Your comments" />
+
+                                <?php if(isset($_SESSION['id']) ){
+
+                                echo
+
+                                '<div class="form-group">
+                                    <input class="form-control" type="text" placeholder="Your comment" />
                                 </div>
                                 <div class="form-group">
                                     <button class="btn btn-default">Post</button>
-                                </div>
+                                </div>';
+
+                            } else{
+
+                                echo
+
+                                '<div class="form-group">
+                                    <input class="form-control" type="text" placeholder="Log in to comment!" />
+                                </div>';
+                            }
+                            ?>
+
                             </form>
+
                         </div>
                     </div>
                 </div>                

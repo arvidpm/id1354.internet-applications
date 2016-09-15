@@ -14,5 +14,3 @@ if ($dbCon->connect_error) {
 } else {
     mysqli_set_charset($dbCon, 'utf8');
 }
-
-?>
