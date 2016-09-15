@@ -1,6 +1,14 @@
 <?php
 
+/**
+ * Created by PhpStorm.
+ * User: arvid
+ * Date: 2016-09-14
+ * Time: 18:47
+ */
+
 include_once("../php-mysql-login/session_start.php");
+include_once("../php-mysql-login/connection.php");
 
 ?>
 
@@ -90,14 +98,36 @@ and open the template in the editor.
                         </div>
                         <div class="actionBox">
                             <ul class="commentList">
-                                <li>
-                                    <div class="commenterImage">
-                                        <img src="../resources/images/comment_placeholder.jpg" />
-                                    </div>
-                                    <div class="commentText">
-                                        <p class="">Hello this is a test comment.</p><span class="date sub-text">Delete comment</span>
-                                    </div>
-                                </li>
+
+                                <?php
+
+                                # Query for getting comments table data
+                                $comments_query = "SELECT * FROM comments";
+                                $comments_result = mysqli_query($dbCon, $comments_query);
+
+                                while ($row = mysqli_fetch_array($comments_result)) {
+                                    $user = $row[1];
+                                    $comment = $row[2];
+
+                                    # Query for getting username related to comment
+                                    $user_query = "SELECT username FROM id1354.members WHERE id = '$user' LIMIT 1";
+                                    $user_result = mysqli_query($dbCon, $user_query);
+                                    $row1 = mysqli_fetch_array($user_result);
+
+                                    echo
+
+                                    '<li>
+                                        <div class="commenterImage">
+                                            <img src="../resources/images/comment_placeholder.jpg" />
+                                        </div>
+                                        <div class="commentText">
+                                            <p class="">'. $comment .'</p><span class="date sub-text">'. $row1['username'] .'</span>
+                                        </div>
+                                    </li>';
+                                }
+
+                                ?>
+
                                 <li>
                                     <div class="commenterImage">
                                         <img src="../resources/images/comment_placeholder.jpg" />
@@ -115,6 +145,11 @@ and open the template in the editor.
 
                                     </div>
                                 </li>
+
+
+
+
+
                             </ul>
                             <form class="form-inline" role="form">
                                 <div class="form-group">

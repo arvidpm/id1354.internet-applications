@@ -45,7 +45,7 @@ and open the template in the editor.
     </div>
     <div class="recipes-list">
         <div class="container">
-            <h2>Welcome to some Tasty Recipes</h2>
+            <h2>Welcome to Tasty Recipes</h2>
             <p>Below are the recipes available at the moment, or if you'd like to check them out in the calendar! </p>
             <p>Note that some of the links are not accessible at the moment, but pancakes and meatballs should be.</p>
             <div class="row">
