@@ -7,7 +7,6 @@
  */
 
 include_once("session_start.php");
-$username = $_SESSION['username'];
 
 ?>
 
@@ -52,7 +51,7 @@ $username = $_SESSION['username'];
                         <h3 class="panel-title">Registration successful!</h3>
                     </div>
                     <div class="panel-body">
-                        <p>Welcome <?php echo $username; ?>! Redirecting in 3 seconds...</p>
+                        <p>Welcome! Redirecting in 3 seconds...</p>
                     </div>
                 </div>
             </div>
