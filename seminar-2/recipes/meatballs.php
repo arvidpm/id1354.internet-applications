@@ -10,6 +10,9 @@
 include_once("../php-mysql-login/session_start.php");
 include_once("../php-mysql-login/connection.php");
 
+# Setting page where user's at
+$_SESSION['page'] = 0;
+
 ?>
 
 <!DOCTYPE html>
@@ -102,7 +105,8 @@ and open the template in the editor.
                                 <?php
 
                                 # Query for getting comments table data
-                                $comments_query = "SELECT * FROM comments WHERE page = '0'";
+                                $page = $_SESSION['page'];
+                                $comments_query = "SELECT * FROM comments WHERE page = '$page'";
                                 $comments_result = mysqli_query($dbCon, $comments_query);
 
                                 while ($row = mysqli_fetch_array($comments_result)) {
@@ -123,7 +127,7 @@ and open the template in the editor.
                                             <img src="../resources/images/comment_placeholder.jpg" />';
 
                                     if ($user === $_SESSION['id']) {
-                                        echo '<a href="../php-mysql-login/delete_comment.php?del='.$id.' " target="_blank"><img src="../resources/images/trashcan.png" alt="trashcan icon"></a>';
+                                        echo '<a href="../php-mysql-login/delete_comment.php?del=' .$id. ' "><img src="../resources/images/trashcan.png" alt="trashcan icon"></a>';
                                     }
 
                                     echo
@@ -138,14 +142,14 @@ and open the template in the editor.
 
                             </ul>
 
-                            <form class="form-inline" role="form">
+                            <form class="form-inline" role="form" action="../php-mysql-login/create_comment.php" method="post">
 
                                 <?php if(isset($_SESSION['id']) ){
 
                                 echo
 
                                 '<div class="form-group">
-                                    <input class="form-control" type="text" placeholder="Your comment" />
+                                    <input class="form-control" type="text" placeholder="Your comment" name="comment" />
                                 </div>
                                 <div class="form-group">
                                     <button class="btn btn-default">Post</button>

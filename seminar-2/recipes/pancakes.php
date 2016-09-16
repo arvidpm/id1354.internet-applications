@@ -1,7 +1,17 @@
 <?php
 
-include_once("../php-mysql-login/session_start.php");
+/**
+ * Created by PhpStorm.
+ * User: arvid
+ * Date: 2016-09-14
+ * Time: 20:47
+ */
 
+include_once("../php-mysql-login/session_start.php");
+include_once("../php-mysql-login/connection.php");
+
+# Setting page where user's at
+$_SESSION['page'] = 1;
 ?>
 
 <!DOCTYPE html>
