@@ -115,7 +115,7 @@ and open the template in the editor.
                                     $comment = $row[2];
 
                                     # Query for getting username related to comment
-                                    $user_query = "SELECT username FROM id1354.members WHERE id = '$user' LIMIT 1";
+                                    $user_query = "SELECT username FROM members WHERE id = '$user' LIMIT 1";
                                     $user_result = mysqli_query($dbCon, $user_query);
                                     $current_user = mysqli_fetch_array($user_result);
 

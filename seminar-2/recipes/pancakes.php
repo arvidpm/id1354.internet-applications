@@ -35,6 +35,7 @@ and open the template in the editor.
     <link rel="stylesheet" href="../resources/css/bootstrap.css">
     <link rel="stylesheet" href="../resources/css/main.css">
     <link rel="stylesheet" href="../resources/css/recipes.css">
+    <link rel="stylesheet" href="../resources/css/commentbox.css">
 </head>
 <body>
     <div class="jumbotron">
@@ -95,16 +96,80 @@ and open the template in the editor.
                     <p>Serve immediately or keep warm in a loosely covered ovenproof dish in a 300 degree F oven. Makes 12 pancakes.</p>
                 </div>
                 <div class="col-md-4">
-                    <h4>User Comments</h4>
-                <table class="commentbox">
-                    <tr><td>Name: <br><input type="text" name="name"/></td></tr>
-                    <tr><td colspan="1">Comment:</td></tr>
-                    <tr><td colspan="1"><textarea name="comment" rows="3" cols="40"></textarea></td></tr>
-                    <tr><td colspan="1"><input type="submit" name="submit" value="Comment"></td></tr>
-                    <tr><td colspan="1">10.15: Kommentar 1, testar hårdkodade kommentarer på meatballs-sidan!</td></tr>
-                        <tr><td colspan="1">10.16: Kommentar 2</td></tr>
-                        <tr><td colspan="1">10.17: Kommentar 3</td></tr>
-                </table>
+                    <div class="detailBox">
+                        <div class="titleBox">
+                            <label>Recipe comments</label>
+                        </div>
+                        <div class="actionBox">
+                            <ul class="commentList">
+
+                                <?php
+
+                                # Query for getting comments table data
+                                $page = $_SESSION['page'];
+                                $comments_query = "SELECT * FROM comments WHERE page = '$page'";
+                                $comments_result = mysqli_query($dbCon, $comments_query);
+
+                                while ($row = mysqli_fetch_array($comments_result)) {
+                                    $id = $row[0];
+                                    $user = $row[1];
+                                    $comment = $row[2];
+
+                                    # Query for getting username related to comment
+                                    $user_query = "SELECT username FROM members WHERE id = '$user' LIMIT 1";
+                                    $user_result = mysqli_query($dbCon, $user_query);
+                                    $current_user = mysqli_fetch_array($user_result);
+
+                                    # Printing comments
+                                    echo
+
+                                    '<li>
+                                        <div class="commenterImage">
+                                            <img src="../resources/images/comment_placeholder.jpg" />';
+
+                                    if ($user === $_SESSION['id']) {
+                                        echo '<a href="../php-mysql-login/delete_comment.php?del=' .$id. ' "><img src="../resources/images/trashcan.png" alt="trashcan icon"></a>';
+                                    }
+
+                                    echo
+                                        '</div>
+                                        <div class="commentText">                                           
+                                            <p class="">'. $comment . '</p>
+                                            <span class="date sub-text">'. $current_user['username'] .'</span>
+                                        </div>
+                                    </li>';
+                                }
+                                ?>
+
+                            </ul>
+
+                            <form class="form-inline" role="form" action="../php-mysql-login/create_comment.php" method="post">
+
+                                <?php if(isset($_SESSION['id']) ){
+
+                                    echo
+
+                                    '<div class="form-group">
+                                    <input class="form-control" type="text" placeholder="Your comment" name="comment" />
+                                </div>
+                                <div class="form-group">
+                                    <button class="btn btn-default">Post</button>
+                                </div>';
+
+                                } else{
+
+                                    echo
+
+                                    '<div class="form-group">
+                                    <input class="form-control" type="text" placeholder="Log in to comment!" />
+                                </div>';
+                                }
+                                ?>
+
+                            </form>
+
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
