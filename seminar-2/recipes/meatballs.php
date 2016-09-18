@@ -78,8 +78,7 @@ and open the template in the editor.
                         } ?>
                     </ul>
                     <ul>
-                        <?php foreach ($recipe->nutrition->children() as $child)
-                        {
+                        <?php foreach ($recipe->nutrition->children() as $child) {
                         echo "<li> $child </li>";
                         }  ?>
                     </ul>
@@ -123,7 +122,8 @@ and open the template in the editor.
                                             <img src="../resources/images/comment_placeholder.jpg" />';
 
                                     if ($user === $_SESSION['id']) {
-                                        echo '<a href="../php-mysql-login/delete_comment.php?del=' .$id. ' "><img src="../resources/images/trashcan.png" alt="trashcan icon"></a>';
+                                        echo '<a href="../php-mysql-login/delete_comment.php?del=' .$id. ' ">
+                                        <img src="../resources/images/trashcan.png" alt="trashcan icon"></a>';
                                     }
 
                                     echo
