@@ -1,0 +1,113 @@
+<?php
+
+include_once("php-mysql-login/session_start.php");
+
+?>
+
+<!DOCTYPE html>
+<!--
+
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+
+    Created on : 2015-sept-01, 14:04:08
+    Author     : arvid
+-->
+<html lang="en">
+<head>
+    <title>Tasty Recipes - Calendar</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="resources/css/reset.css">
+    <link rel="stylesheet" href="resources/css/shift.css">
+    <link rel="stylesheet" href="resources/css/bootstrap.css">
+    <link rel="stylesheet" href="resources/css/main.css">
+</head>
+<body>
+    <div class="jumbotron">
+        <div class="container">
+            <h1>This. Is. Tasty. RECIPES!</h1>
+        </div>
+    </div>
+    <div class="nav">
+        <div class="container">
+            <ul>
+                <li><a href="index.php">Home</a></li>
+                <li><a href="calendar.php">Calendar</a></li>
+                <li><a href="php-mysql-login/signin.php">Sign In</a></li>
+				<?php if(isset($_SESSION['id']) ){
+					echo '<li><a href="php-mysql-login/logged_out.php">Log out</a></li>';
+				} ?>
+            </ul>
+        </div>
+    </div>
+   <div class="cal-container">
+	<div class="grid-calendar">
+		<div class="row calendar-week-header">
+			<div class="col-xs-1 grid-cell"><div><div><span>Sun</span></div></div></div>
+			<div class="col-xs-1 grid-cell"><div><div><span>Mon</span></div></div></div>
+			<div class="col-xs-1 grid-cell"><div><div><span>Tue</span></div></div></div>
+			<div class="col-xs-1 grid-cell"><div><div><span>Wed</span></div></div></div>
+			<div class="col-xs-1 grid-cell"><div><div><span>Thu</span></div></div></div>
+			<div class="col-xs-1 grid-cell"><div><div><span>Fri</span></div></div></div>
+			<div class="col-xs-1 grid-cell"><div><div><span>Sat</span></div></div></div>
+		</div>
+        
+		<div class="row calendar-week">
+			<div class="col-xs-1 grid-cell previous-month"><div><div><span>31</span></div></div></div>
+			<div class="col-xs-1 grid-cell"><div><div><span>1</span></div></div></div>
+			<div class="col-xs-1 grid-cell"><a href="recipes/meatballs.php">
+                <img class="img-responsive" src="resources/images/Turkey-meatballs-square.jpg" alt="Delicious Turkey Meatballs"></a></div>
+			<div class="col-xs-1 grid-cell"><div><div><span>3</span></div></div></div>
+			<div class="col-xs-1 grid-cell"><div><div><span>4</span></div></div></div>
+			<div class="col-xs-1 grid-cell"><div><div><span>5</span></div></div></div>
+			<div class="col-xs-1 grid-cell"><div><div><span>6</span></div></div></div>
+		</div>
+
+		<div class="row calendar-week">
+			<div class="col-xs-1 grid-cell"><a href="">
+                <img class="img-responsive" src="resources/images/ultimate_BLT_sandwich-square.jpg" alt="Gorgeous BLT Sandwich"></a></div>
+			<div class="col-xs-1 grid-cell"><div><div><span>8</span></div></div></div>
+			<div class="col-xs-1 grid-cell"><div><div><span>9</span></div></div></div>
+			<div class="col-xs-1 grid-cell"><div><div><span>10</span></div></div></div>
+			<div class="col-xs-1 grid-cell"><div><div><span>11</span></div></div></div>
+			<div class="col-xs-1 grid-cell"><div><div><span>12</span></div></div></div>
+			<div class="col-xs-1 grid-cell"><div><div><span>13</span></div></div></div>
+		</div>
+
+		<div class="row calendar-week">
+			<div class="col-xs-1 grid-cell"><div><div><span>14</span></div></div></div>
+			<div class="col-xs-1 grid-cell"><div><div><span>15</span></div></div></div>
+			<div class="col-xs-1 grid-cell"><div><div><span>16</span></div></div></div>
+			<div class="col-xs-1 grid-cell"><div><div><span>17</span></div></div></div>
+			<div class="col-xs-1 grid-cell"><a href="recipes/pancakes.php"><img class="img-responsive" src="resources/images/AppleOatPancakes_DT-square.jpg" alt="Delicious Honey Oat Pancakes"></a></div>
+			<div class="col-xs-1 grid-cell"><div><div><span>19</span></div></div></div>
+			<div class="col-xs-1 grid-cell"><div><div><span>20</span></div></div></div>
+		</div>
+
+		<div class="row calendar-week">
+			<div class="col-xs-1 grid-cell"><a href="">
+                <img class="img-responsive" src="resources/images/icecream-square.jpg" alt="Delicious Icecream"></a></div>
+			<div class="col-xs-1 grid-cell"><div><div><span>22</span></div></div></div>
+			<div class="col-xs-1 grid-cell"><div><div><span>23</span></div></div></div>
+			<div class="col-xs-1 grid-cell"><div><div><span>24</span></div></div></div>
+			<div class="col-xs-1 grid-cell"><div><div><span>25</span></div></div></div>
+			<div class="col-xs-1 grid-cell"><div><div><span>26</span></div></div></div>
+			<div class="col-xs-1 grid-cell"><div><div><span>27</span></div></div></div>
+		</div>
+
+		<div class="row calendar-week">
+			<div class="col-xs-1 grid-cell"><div><div><span>28</span></div></div></div>
+			<div class="col-xs-1 grid-cell"><div><div><span>29</span></div></div></div>
+			<div class="col-xs-1 grid-cell"><div><div><span>30</span></div></div></div>
+			<div class="col-xs-1 grid-cell next-month"><div><div><span>1</span></div></div></div>
+			<div class="col-xs-1 grid-cell next-month"><div><div><span>2</span></div></div></div>
+			<div class="col-xs-1 grid-cell next-month"><div><div><span>3</span></div></div></div>
+			<div class="col-xs-1 grid-cell next-month"><div><div><span>4</span></div></div></div>
+		</div>
+	</div>
+</div>
+</body>
+</html>
