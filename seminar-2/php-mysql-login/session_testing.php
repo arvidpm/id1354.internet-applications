@@ -20,10 +20,6 @@ echo session_name()."<br>";
 echo session_id()."<br>";
 echo $_SESSION['value'];
 
-session_destroy();
-
-/*
-
 session_unset(); // clear the $_SESSION variable
 
 if(isset($_COOKIE[session_name()])) {
@@ -31,5 +27,3 @@ if(isset($_COOKIE[session_name()])) {
 }
 
 session_destroy(); // finally destroy the session
-
-*/
