@@ -15,6 +15,7 @@ if ($_POST['submit']) {
     $username = strip_tags($_POST['username']);
     $password = strip_tags($_POST['password']);
 
+
     # This is the database query
     $sql = "SELECT * FROM members WHERE username = '$username' LIMIT 1";
     $query = mysqli_query($dbCon, $sql);
@@ -24,19 +25,17 @@ if ($_POST['submit']) {
         $row = mysqli_fetch_row($query);
         $userId = $row[0];
         $dbUsername = $row[1];
-        $dbPassword = $row[2];
+        $dbHashPassword = $row[2];
+
+        if ($username == $dbUsername && password_verify($password, $dbHashPassword)) {
+
+            $_SESSION['username'] = $username;
+            $_SESSION['id'] = $userId;
+            header('Location: ../index.php');
+        } else {
+            header('Location: signin_failed.php');
+        }
     }
-
-
-    if ($username == $dbUsername && $password == $dbPassword) {
-
-        $_SESSION['username'] = $username;
-        $_SESSION['id'] = $userId;
-        header('Location: ../index.php');
-    } else {
-        header('Location: signin_failed.php');
-    }
-
 }
 
 ?>

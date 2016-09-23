@@ -16,8 +16,11 @@ if ($_POST['submit']) {
     $username = strip_tags($_POST['username']);
     $password = strip_tags($_POST['password']);
 
+    # Hashes password
+    $dbHashPassword = password_hash($password, PASSWORD_DEFAULT);
+
     # This is the database query
-    $sql = "INSERT INTO members (username, password) VALUES ('$username','$password')";
+    $sql = "INSERT INTO members (username, password) VALUES ('$username','$dbHashPassword')";
     $query = mysqli_query($dbCon, $sql);
 
     if ($query) {
