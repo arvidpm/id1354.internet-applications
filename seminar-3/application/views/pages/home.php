@@ -7,4 +7,4 @@
  */
 ?>
 
-“Hello World!, from home.php”
+<h2>Hello World!, from home.php</h2>
