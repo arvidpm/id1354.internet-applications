@@ -14,9 +14,11 @@ Created on : 2015-sept-01, 14:04:08
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="/id1354/seminar-3/resources/css/reset.css">
-    <link rel="stylesheet" href="/resources/css/shift.css">
-    <link rel="stylesheet" href="/resources/css/bootstrap.css">
-    <link rel="stylesheet" href="/resources/css/main.css">
+    <link rel="stylesheet" href="<?php echo base_url('resources/css/reset.css')?>">
+    <link rel="stylesheet" href="<?php echo base_url('resources/css/shift.css')?>">
+    <link rel="stylesheet" href="<?php echo base_url('resources/css/bootstrap.min.css')?>">
+    <link rel="stylesheet" href="<?php echo base_url('resources/css/main.css')?>">
+    <link rel="stylesheet" href="<?php echo base_url('resources/css/recipes.css')?>">
+    <link rel="stylesheet" href="<?php echo base_url('resources/css/commentbox.css')?>">
 </head>
 <body>

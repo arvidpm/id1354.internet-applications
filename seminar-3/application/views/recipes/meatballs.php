@@ -1,94 +1,32 @@
 <?php
 
-/**
- * Created by PhpStorm.
- * User: arvid
- * Date: 2016-09-14
- * Time: 18:47
- */
-
-include_once("../php-mysql-login/session_start.php");
-include_once("../php-mysql-login/connection.php");
-
 # Setting page where user's at
 $_SESSION['page'] = 0;
 
 # Loading recipe data
-$url = '../resources/recipes/meatballs.xml';
-$xml = simplexml_load_file($url) or die("Can't load file.");
+
+$data =
 
 ?>
 
-<!DOCTYPE html>
-<!--
-
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
-
-    Created on : 2015-sept-01, 14:04:08
-    Author     : arvid
--->
-<html lang="en">
-<head>
-    <title>Tasty Recipes - Meatballs recipe</title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <link rel="stylesheet" href="../../resources/css/reset.css">
-    <link rel="stylesheet" href="../../resources/css/shift.css">
-    <link rel="stylesheet" href="../../resources/css/bootstrap.css">
-    <link rel="stylesheet" href="../../resources/css/main.css">
-    <link rel="stylesheet" href="../../resources/css/recipes.css">
-    <link rel="stylesheet" href="../../resources/css/commentbox.css">
-
-</head>
-<body>
-    <div class="jumbotron">
-        <div class="container">
-            <h1>This. Is. Tasty. RECIPES!</h1>
-        </div>
-    </div>
-    <div class="nav">
-        <div class="container">
-            <ul>
-                <li><a href="../index.php">Home</a></li>
-                <li><a href="../calendar.php">Calendar</a></li>
-                <li><a href="../php-mysql-login/signin.php">Sign In</a></li>
-                <?php if(isset($_SESSION['id']) ){
-                    echo '<li><a href="../php-mysql-login/logged_out.php">Log out</a></li>';
-                } ?>
-            </ul>
-        </div>
-    </div>
     <div class="recipes-list">
         <div class="container">
-            <?php foreach ($xml->recipe as $recipe) {
-                echo "<h2>$recipe->title</h2>";
-            } ?>
+            <?php echo $data['xmlresult']?>
             <div class="row">
                 <div class="col-md-3">
                     <div class="thumbnail">
-                        <a href=""><img src="../../resources/images/Turkey-meatballs.jpg" alt="Meatballs page"></a>
+                        <a href=""><img src="../../../resources/images/Turkey-meatballs.jpg" alt="Meatballs page"></a>
                     </div>
                     <h4>Ingredients</h4>
                     <ul>
-                        <?php foreach ($recipe->ingredient->children() as $child) {
-                                echo "<li> $child </li>";
-                        } ?>
+
                     </ul>
                     <ul>
-                        <?php foreach ($recipe->nutrition->children() as $child)
-                        {
-                        echo "<li> $child </li>";
-                        }  ?>
+
                     </ul>
                 </div>
                 <div class="col-md-5">
-                    <h4>Directions</h4>
-                    <?php foreach ($recipe->recipetext->children() as $child) {
-                        echo "<p>$child </p>";
-                    } ?>
+
                 </div>
                 <div class="col-md-4">
                     <div class="detailBox">
@@ -120,7 +58,7 @@ and open the template in the editor.
 
                                     '<li>
                                         <div class="commenterImage">
-                                            <img src="../../resources/images/comment_placeholder.jpg" />';
+                                            <img src="../../../resources/images/comment_placeholder.jpg" />';
 
                                     if ($user === $_SESSION['id']) {
                                         echo '<a href="../php-mysql-login/delete_comment.php?del=' .$id. ' "><img src="../resources/images/trashcan.png" alt="trashcan icon"></a>';
@@ -138,7 +76,7 @@ and open the template in the editor.
 
                             </ul>
 
-                            <form class="form-inline" role="form" action="../php-mysql-login/create_comment.php" method="post">
+                            <form class="form-inline" role="form" action="../../../src/php-mysql-login/create_comment.php" method="post">
 
                                 <?php if(isset($_SESSION['id']) ){
 
@@ -168,30 +106,4 @@ and open the template in the editor.
                 </div>                
             </div>
         </div>
-        <div class="other-recipes">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-2">
-                        <h3>Pancakes</h3>
-                        <div class="thumbnail">
-                        <a href="pancakes.php"><img src="../../resources/images/AppleOatPancakes_DT.jpg" alt="Honey Oat Pancakes"></a>
-                        </div>
-                    </div>
-                <div class="col-md-2">
-                    <h3>Icecream</h3>
-                    <div class="thumbnail">
-                        <a href=""><img src="../../resources/images/icecream.jpg" alt="Colorful Icecream"></a>
-                    </div>
-                </div>
-                <div class="col-md-2">
-                    <h3>BLT Sandwich</h3>
-                    <div class="thumbnail">
-                        <a href=""><img src="../../resources/images/ultimate_BLT_sandwich.jpg" alt="Gorgeous BLT Sandwich"></a>
-                    </div>
-                </div>
-            </div>
-        </div>
     </div>
-    </div>
-</body>
-</html>

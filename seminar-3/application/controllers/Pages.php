@@ -11,6 +11,7 @@ class Pages extends CI_Controller {
 
     public function view($page = 'index')
     {
+
         if ( ! file_exists(APPPATH.'views/pages/'.$page.'.php'))
         {
             // Whoops, we don't have a page for that!
@@ -18,8 +19,11 @@ class Pages extends CI_Controller {
         }
 
         $this->load->view('templates/header');
+        $this->load->view('templates/jumbotron');
+        $this->load->view('templates/navbar');
         $this->load->view('pages/'.$page);
         $this->load->view('templates/footer');
+
     }
 
 }

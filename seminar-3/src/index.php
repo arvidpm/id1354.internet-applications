@@ -51,11 +51,11 @@ and open the template in the editor.
             <div class="row">
                 <div class="col-md-4">
                     <div class="thumbnail">
-                        <a href="recipes/meatballs.php"><img src="../resources/images/Turkey-meatballs.jpg" alt="Meatballs page"></a>
+                        <a href="../application/views/recipes/meatballs.php"><img src="../resources/images/Turkey-meatballs.jpg" alt="Meatballs page"></a>
                         <div class="other-recipes"><h4>Turkey Meatballs</h4></div>
                     </div>
                     <div class="thumbnail">
-                        <a href="recipes/pancakes.php"><img src="../resources/images/AppleOatPancakes_DT.jpg" alt="Pancakes page"></a>
+                        <a href="../application/views/recipes/pancakes.php"><img src="../resources/images/AppleOatPancakes_DT.jpg" alt="Pancakes page"></a>
                         <div class="other-recipes"><h4>Honey-Oatmeal Pancakes</h4></div>
                     </div>
                 </div>

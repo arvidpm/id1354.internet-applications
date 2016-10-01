@@ -58,7 +58,7 @@ and open the template in the editor.
 		<div class="row calendar-week">
 			<div class="col-xs-1 grid-cell previous-month"><div><div><span>31</span></div></div></div>
 			<div class="col-xs-1 grid-cell"><div><div><span>1</span></div></div></div>
-			<div class="col-xs-1 grid-cell"><a href="recipes/meatballs.php">
+			<div class="col-xs-1 grid-cell"><a href="../application/views/recipes/meatballs.php">
                 <img class="img-responsive" src="../resources/images/Turkey-meatballs-square.jpg" alt="Delicious Turkey Meatballs"></a></div>
 			<div class="col-xs-1 grid-cell"><div><div><span>3</span></div></div></div>
 			<div class="col-xs-1 grid-cell"><div><div><span>4</span></div></div></div>
@@ -82,7 +82,7 @@ and open the template in the editor.
 			<div class="col-xs-1 grid-cell"><div><div><span>15</span></div></div></div>
 			<div class="col-xs-1 grid-cell"><div><div><span>16</span></div></div></div>
 			<div class="col-xs-1 grid-cell"><div><div><span>17</span></div></div></div>
-			<div class="col-xs-1 grid-cell"><a href="recipes/pancakes.php"><img class="img-responsive" src="../resources/images/AppleOatPancakes_DT-square.jpg" alt="Delicious Honey Oat Pancakes"></a></div>
+			<div class="col-xs-1 grid-cell"><a href="../application/views/recipes/pancakes.php"><img class="img-responsive" src="../resources/images/AppleOatPancakes_DT-square.jpg" alt="Delicious Honey Oat Pancakes"></a></div>
 			<div class="col-xs-1 grid-cell"><div><div><span>19</span></div></div></div>
 			<div class="col-xs-1 grid-cell"><div><div><span>20</span></div></div></div>
 		</div>
