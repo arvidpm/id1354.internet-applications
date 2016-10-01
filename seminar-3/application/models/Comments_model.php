@@ -16,12 +16,6 @@ class Comments_model extends CI_Model
 
     public function get_comments($page)
     {
-        if ($page === 0)
-        {
-            $query = $this->db->get_where('comments ', array('page' => $page));
-            return $query->result_array();
-        }
-
 
         $query = $this->db->get_where('comments ', array('page' => $page));
         return $query->result_array();

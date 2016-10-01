@@ -16,14 +16,14 @@ and open the template in the editor.
 -->
 <html lang="en">
 <head>
-    <title>Tasty Recipes - Home</title>
+    <title>Tasty Recipes</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <link rel="stylesheet" href="resources/css/reset.css">
-    <link rel="stylesheet" href="resources/css/shift.css">
-    <link rel="stylesheet" href="resources/css/bootstrap.css">
-    <link rel="stylesheet" href="resources/css/main.css">
+    <link rel="stylesheet" href="../resources/css/reset.css">
+    <link rel="stylesheet" href="../resources/css/shift.css">
+    <link rel="stylesheet" href="../resources/css/bootstrap.css">
+    <link rel="stylesheet" href="../resources/css/main.css">
 </head>
 <body>
     <div class="jumbotron">
@@ -51,27 +51,27 @@ and open the template in the editor.
             <div class="row">
                 <div class="col-md-4">
                     <div class="thumbnail">
-                        <a href="recipes/meatballs.php"><img src="resources/images/Turkey-meatballs.jpg" alt="Meatballs page"></a>
+                        <a href="recipes/meatballs.php"><img src="../resources/images/Turkey-meatballs.jpg" alt="Meatballs page"></a>
                         <div class="other-recipes"><h4>Turkey Meatballs</h4></div>
                     </div>
                     <div class="thumbnail">
-                        <a href="recipes/pancakes.php"><img src="resources/images/AppleOatPancakes_DT.jpg" alt="Pancakes page"></a>
+                        <a href="recipes/pancakes.php"><img src="../resources/images/AppleOatPancakes_DT.jpg" alt="Pancakes page"></a>
                         <div class="other-recipes"><h4>Honey-Oatmeal Pancakes</h4></div>
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="thumbnail">
-                        <a href=""><img src="resources/images/icecream.jpg" alt="Colorful Icecream"></a>
+                        <a href=""><img src="../resources/images/icecream.jpg" alt="Colorful Icecream"></a>
                         <div class="other-recipes"><h4>Colorful Icecream</h4></div>
                     </div>
                     <div class="thumbnail">
-                        <a href=""><img src="resources/images/ultimate_BLT_sandwich.jpg" alt="Gorgeous BLT Sandwich"></a>
+                        <a href=""><img src="../resources/images/ultimate_BLT_sandwich.jpg" alt="Gorgeous BLT Sandwich"></a>
                         <div class="other-recipes"><h4>Ultimate BLT Sandwich</h4></div>
                     </div>
                 </div>
                 <div class="col-md-3">
                     <div class="thumbnail">
-                        <img src="resources/images/aschberg.jpg" alt="The Chef Himself, Aschberg.">
+                        <img src="../resources/images/aschberg.jpg" alt="The Chef Himself, Aschberg.">
                     </div>
             </div>
         </div>

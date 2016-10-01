@@ -35,12 +35,12 @@ and open the template in the editor.
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <link rel="stylesheet" href="../resources/css/reset.css">
-    <link rel="stylesheet" href="../resources/css/shift.css">
-    <link rel="stylesheet" href="../resources/css/bootstrap.css">
-    <link rel="stylesheet" href="../resources/css/main.css">
-    <link rel="stylesheet" href="../resources/css/recipes.css">
-    <link rel="stylesheet" href="../resources/css/commentbox.css">
+    <link rel="stylesheet" href="../../resources/css/reset.css">
+    <link rel="stylesheet" href="../../resources/css/shift.css">
+    <link rel="stylesheet" href="../../resources/css/bootstrap.css">
+    <link rel="stylesheet" href="../../resources/css/main.css">
+    <link rel="stylesheet" href="../../resources/css/recipes.css">
+    <link rel="stylesheet" href="../../resources/css/commentbox.css">
 
 </head>
 <body>
@@ -69,7 +69,7 @@ and open the template in the editor.
             <div class="row">
                 <div class="col-md-3">
                     <div class="thumbnail">
-                        <a href=""><img src="../resources/images/Turkey-meatballs.jpg" alt="Meatballs page"></a>
+                        <a href=""><img src="../../resources/images/Turkey-meatballs.jpg" alt="Meatballs page"></a>
                     </div>
                     <h4>Ingredients</h4>
                     <ul>
@@ -120,7 +120,7 @@ and open the template in the editor.
 
                                     '<li>
                                         <div class="commenterImage">
-                                            <img src="../resources/images/comment_placeholder.jpg" />';
+                                            <img src="../../resources/images/comment_placeholder.jpg" />';
 
                                     if ($user === $_SESSION['id']) {
                                         echo '<a href="../php-mysql-login/delete_comment.php?del=' .$id. ' "><img src="../resources/images/trashcan.png" alt="trashcan icon"></a>';
@@ -174,19 +174,19 @@ and open the template in the editor.
                     <div class="col-md-2">
                         <h3>Pancakes</h3>
                         <div class="thumbnail">
-                        <a href="pancakes.php"><img src="../resources/images/AppleOatPancakes_DT.jpg" alt="Honey Oat Pancakes"></a>
+                        <a href="pancakes.php"><img src="../../resources/images/AppleOatPancakes_DT.jpg" alt="Honey Oat Pancakes"></a>
                         </div>
                     </div>
                 <div class="col-md-2">
                     <h3>Icecream</h3>
                     <div class="thumbnail">
-                        <a href=""><img src="../resources/images/icecream.jpg" alt="Colorful Icecream"></a>
+                        <a href=""><img src="../../resources/images/icecream.jpg" alt="Colorful Icecream"></a>
                     </div>
                 </div>
                 <div class="col-md-2">
                     <h3>BLT Sandwich</h3>
                     <div class="thumbnail">
-                        <a href=""><img src="../resources/images/ultimate_BLT_sandwich.jpg" alt="Gorgeous BLT Sandwich"></a>
+                        <a href=""><img src="../../resources/images/ultimate_BLT_sandwich.jpg" alt="Gorgeous BLT Sandwich"></a>
                     </div>
                 </div>
             </div>

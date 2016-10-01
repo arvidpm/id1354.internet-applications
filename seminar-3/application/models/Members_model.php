@@ -19,7 +19,13 @@ class Comments_model extends CI_Model
 
         $query = $this->db->get_where('members ', array('username' => $username));
         return $query->result_array();
+    }
 
+    public function set_members($username)
+    {
+
+        $query = $this->db->get_where('members ', array('username' => $username));
+        return $query->result_array();
     }
 
 }
