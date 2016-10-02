@@ -11,7 +11,7 @@ class Comments_model extends CI_Model
 
     public function __construct()
     {
-        $this->load->database();
+        parent::__construct(); // Call the model constructor
     }
 
     public function get_members($username)

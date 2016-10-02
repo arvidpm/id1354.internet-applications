@@ -12,27 +12,33 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <div class="row">
             <div class="col-md-4">
                 <div class="thumbnail">
-                    <a href="<?php echo base_url('index.php/recipes/view/meatballs')?>"><img src="<?php echo base_url('resources/images/Turkey-meatballs.jpg')?>" alt="Meatballs page"></a>
+                    <a href="<?php echo base_url('index.php/recipes/view/meatballs') ?>"><img
+                            src="<?php echo base_url('resources/images/Turkey-meatballs.jpg') ?>" alt="Meatballs page"></a>
                     <div class="other-recipes"><h4>Turkey Meatballs</h4></div>
                 </div>
                 <div class="thumbnail">
-                    <a href="<?php echo base_url('index.php/recipes/view/pancakes')?>"><img src="<?php echo base_url('resources/images/AppleOatPancakes_DT.jpg')?>" alt="Pancakes page"></a>
+                    <a href="<?php echo base_url('index.php/recipes/view/pancakes') ?>"><img
+                            src="<?php echo base_url('resources/images/AppleOatPancakes_DT.jpg') ?>"
+                            alt="Pancakes page"></a>
                     <div class="other-recipes"><h4>Honey-Oatmeal Pancakes</h4></div>
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="thumbnail">
-                    <a href=""><img src="<?php echo base_url('resources/images/icecream.jpg')?>" alt="Colorful Icecream"></a>
+                    <a href=""><img src="<?php echo base_url('resources/images/icecream.jpg') ?>"
+                                    alt="Colorful Icecream"></a>
                     <div class="other-recipes"><h4>Colorful Icecream</h4></div>
                 </div>
                 <div class="thumbnail">
-                    <a href=""><img src="<?php echo base_url('resources/images/ultimate_BLT_sandwich.jpg')?>" alt="Gorgeous BLT Sandwich"></a>
+                    <a href=""><img src="<?php echo base_url('resources/images/ultimate_BLT_sandwich.jpg') ?>"
+                                    alt="Gorgeous BLT Sandwich"></a>
                     <div class="other-recipes"><h4>Ultimate BLT Sandwich</h4></div>
                 </div>
             </div>
             <div class="col-md-3">
                 <div class="thumbnail">
-                    <img src="<?php echo base_url('resources/images/aschberg.jpg')?>" alt="The Chef Himself, Aschberg.">
+                    <img src="<?php echo base_url('resources/images/aschberg.jpg') ?>"
+                         alt="The Chef Himself, Aschberg.">
                 </div>
             </div>
         </div>

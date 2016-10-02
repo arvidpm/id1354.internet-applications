@@ -7,6 +7,7 @@
  */
 
 ?>
+
 <div class="cal-container">
     <div class="grid-calendar">
         <div class="row calendar-week-header">

@@ -1,20 +1,19 @@
 <?php
-
 /**
  * Created by PhpStorm.
  * User: arvid
- * Date: 2016-09-28
- * Time: 14:04
+ * Date: 2016-10-02
+ * Time: 23:20
  */
-class Recipes extends CI_Controller
-{
+
+class Users extends CI_Controller {
 
 
-    public function view($page = 'index')
-    {
+    public function view($page = 'index') {
 
 
-        if (!file_exists(APPPATH . 'views/recipes/' . $page . '.php')) {
+        if ( ! file_exists(APPPATH.'views/pages/'.$page.'.php'))
+        {
             // Whoops, we don't have a page for that!
             show_404();
         }
@@ -25,7 +24,7 @@ class Recipes extends CI_Controller
         $this->load->view('templates/header');
         $this->load->view('templates/jumbotron');
         $this->load->view('templates/navbar');
-        $this->load->view('recipes/' . $page);
+        $this->load->view('pages/'.$page);
         $this->load->view('templates/bottombar');
         $this->load->view('templates/footer');
 
