@@ -10,6 +10,5 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 ?>
 
-<p>Page rendered in <strong>{elapsed_time}</strong></p>
 </body>
 </html>

@@ -59,7 +59,8 @@ if ($_POST['submit']) {
                                     <input class="form-control" placeholder="Password" name="password" type="password">
                                 </div>
                                 <div class="signup-style">
-                                    <label>Don't have an account? <a href="signup.php">Sign up</a></label>
+                                    <label>Don't have an account? <a
+                                            href="<?php echo base_url('index.php/members/view/signup') ?>">Sign up</a></label>
                                 </div>
                                 <input class="btn btn-lg btn-success btn-block" type="submit" name="submit"
                                        value="Login">

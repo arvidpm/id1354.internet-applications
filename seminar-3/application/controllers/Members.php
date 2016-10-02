@@ -6,13 +6,13 @@
  * Time: 23:20
  */
 
-class Users extends CI_Controller {
+class Members extends CI_Controller {
 
 
     public function view($page = 'index') {
 
 
-        if ( ! file_exists(APPPATH.'views/pages/'.$page.'.php'))
+        if ( ! file_exists(APPPATH.'views/members/'.$page.'.php'))
         {
             // Whoops, we don't have a page for that!
             show_404();
@@ -24,7 +24,7 @@ class Users extends CI_Controller {
         $this->load->view('templates/header');
         $this->load->view('templates/jumbotron');
         $this->load->view('templates/navbar');
-        $this->load->view('pages/'.$page);
+        $this->load->view('members/'.$page);
         $this->load->view('templates/bottombar');
         $this->load->view('templates/footer');
 
