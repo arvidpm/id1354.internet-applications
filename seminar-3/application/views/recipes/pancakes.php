@@ -7,9 +7,6 @@
  * Time: 20:47
  */
 
-include_once("../php-mysql-login/session_start.php");
-include_once("../php-mysql-login/connection.php");
-
 # Setting page where user's at
 $_SESSION['page'] = 1;
 
