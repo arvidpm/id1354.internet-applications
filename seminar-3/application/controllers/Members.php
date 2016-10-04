@@ -75,7 +75,7 @@ class Members extends CI_Controller
 
         } else {
 
-            redirect_back();
+            redirect(base_url());
         }
     }
 
@@ -134,7 +134,7 @@ class Members extends CI_Controller
 
     }
 
-    /*
+
     function create_member()
     {
 
@@ -145,22 +145,16 @@ class Members extends CI_Controller
         if ($this->form_validation->run() == FALSE) // Didn't validate
         {
 
-            $this->load->view('templates/header');
-            $this->load->view('templates/jumbotron');
-            $this->load->view('templates/navbar');
-            $this->load->view('members/signin_failed');
-            $this->load->view('templates/bottombar');
-            $this->load->view('templates/footer');
+            $this->session->set_flashdata('validation_errors', validation_errors());
+            redirect_back();
 
         } else {
 
-            $this->load->model('members_model');
-
-            if ($query = $this->members_model->set_members()
+            redirect_back();
 
         }
 
 
-    }*/
+    }
 
 }

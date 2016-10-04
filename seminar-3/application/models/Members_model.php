@@ -66,7 +66,6 @@ class Members_model extends CI_Model
 
 
 
-
     private function verifyPassword(&$result, $password)
     {
 

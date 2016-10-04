@@ -1,12 +1,3 @@
-<?php
-
-# Setting page where user's at
-$_SESSION['page'] = 0;
-
-# Loading recipe data
-
-?>
-
 <div class="recipes-list">
     <div class="container">
         <div class="row">
@@ -15,6 +6,7 @@ $_SESSION['page'] = 0;
                     <a href=""><img src="../../../resources/images/Turkey-meatballs.jpg" alt="Meatballs page"></a>
                 </div>
                 <h4>Ingredients</h4>
+                <?php echo '$page' ?>
                 <ul>
 
                 </ul>

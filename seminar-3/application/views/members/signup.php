@@ -1,38 +1,3 @@
-<?php
-
-/**
- * Created by PhpStorm.
- * User: arvid
- * Date: 2016-09-14
- * Time: 10:59
- */
-/*
-include_once("session_start.php");
-
-# If user presses submit
-if ($_POST['submit']) {
-
-    include_once("connection.php");
-    $username = strip_tags($_POST['username']);
-    $password = strip_tags($_POST['password']);
-
-    # Hashes password
-    $dbHashPassword = password_hash($password, PASSWORD_DEFAULT);
-
-    # This is the database query
-    $sql = "INSERT INTO members (username, password) VALUES ('$username','$dbHashPassword')";
-    $query = mysqli_query($dbCon, $sql);
-
-    if ($query) {
-        header('Location: registration_success.php');
-    } else {
-        header('Location: registration_failed.php');
-    }
-
-}
-*/
-?>
-
 <div class="login-style">
     <div class="container">
         <div class="row">
@@ -42,10 +7,11 @@ if ($_POST['submit']) {
                         <h3 class="panel-title">Register user</h3>
                     </div>
                     <div class="panel-body">
-                        <form accept-charset="UTF-8" role="form" method="post" action="signup.php">
+
+                        <?php echo form_open('Members/set_member'); ?>
                             <fieldset>
                                 <div class="form-group">
-                                    <input class="form-control" placeholder="Choose your username" name="username"
+                                    <input class="form-control" placeholder="Username (max 20 chars)" name="username"
                                            type="text">
                                 </div>
                                 <div class="form-group">
@@ -55,7 +21,12 @@ if ($_POST['submit']) {
                                 <input class="btn btn-lg btn-success btn-block" type="submit" name="submit"
                                        value="Register">
                             </fieldset>
-                        </form>
+                        <?php echo form_close();
+
+                        $ve = $this->session->flashdata('validation_errors');
+
+                        if(isset($ve))
+                            echo '<div class="signup-style"><label>Something went wrong! Please try again.</label> </div>' ?>
                     </div>
                 </div>
             </div>
