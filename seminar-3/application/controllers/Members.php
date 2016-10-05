@@ -25,11 +25,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Members extends CI_Controller
 {
 
-
-    /**
-     *    The default constructor. Loads the user model.
-     * @see User_model.php
-     */
     function __construct()
     {
         parent::__construct();
@@ -47,9 +42,6 @@ class Members extends CI_Controller
             show_404();
         }
 
-        #$this->load->model('xml_model');
-        #$data['title'] = $this->xml_model->getTitle($page);
-
         $this->load->view('templates/header');
         $this->load->view('templates/jumbotron');
         $this->load->view('templates/navbar');
@@ -64,7 +56,7 @@ class Members extends CI_Controller
     {
 
         $this->form_validation->set_rules('username', 'Username', 'trim|required|max_length[20]|xss_clean');
-        $this->form_validation->set_rules('password', 'Password', 'trim|required|xss_clean|callback_queryDatabase');
+        $this->form_validation->set_rules('password', 'Password', 'trim|required|xss_clean|callback_checkDatabase');
 
 
         if ($this->form_validation->run() == FALSE) // Didn't validate
@@ -80,32 +72,45 @@ class Members extends CI_Controller
     }
 
 
-    /**
-     *    Verifies if entered user input was correctly entered.
-     *
-     * @param $password user input from password field.
-     * @return TRUE if username and password matched in database
-     *            FALSE if it didn't match.
-     * @usedby User::verifyLogin()
-     */
+    function create_member()
+    {
+
+        $this->form_validation->set_rules('username', 'Username', 'trim|required|max_length[20]|xss_clean');
+        $this->form_validation->set_rules('password', 'Password', 'trim|required|xss_clean|callback_setDatabase');
 
 
-    function queryDatabase($password)
+        if ($this->form_validation->run() == FALSE) // Didn't validate
+        {
+
+            $this->session->set_flashdata('validation_errors', validation_errors());
+            redirect_back();
+
+        } else {
+
+            $this->session->set_flashdata('validation_errors', 'Successfully created a user! Please sign in.');
+            redirect(base_url('index.php/members/view/signin'));
+
+        }
+
+
+    }
+
+
+    function checkDatabase($password)
     {
 
         $username = $this->input->post('username');
 
         $result = $this->members_model->get_members($username, $password);
 
-        if ($result)
-        {
+        if ($result) {
 
             foreach ($result as $row) {
                 $sess_array =
 
-                    array(  'id' => $row->id,
-                            'username' => $row->username
-                        );
+                    array('id' => $row->id,
+                        'username' => $row->username
+                    );
 
                 $this->session->set_userdata('logged_in', $sess_array);
             }
@@ -120,10 +125,26 @@ class Members extends CI_Controller
         }
     }
 
-    /**
-     *    Unsets the session data containing the users username
-     *    and id as well as destroying the session.
-     */
+
+    function setDatabase($password)
+    {
+
+        $username = $this->input->post('username');
+
+        $result = $this->members_model->set_members($username, $password);
+
+        if ($result) {
+
+            return TRUE;
+
+        } else {
+
+            $this->form_validation->set_message('setDatabase', 'Something went wrong, try again!');
+
+            return FALSE;
+        }
+    }
+
 
     function logout()
     {
@@ -131,29 +152,6 @@ class Members extends CI_Controller
         $this->session->unset_userdata('logged_in');
         session_destroy();
         redirect_back();
-
-    }
-
-
-    function create_member()
-    {
-
-        $this->form_validation->set_rules('username', 'Username', 'trim|required|max_length[20]');
-        $this->form_validation->set_rules('password', 'Password', 'trim|required');
-
-
-        if ($this->form_validation->run() == FALSE) // Didn't validate
-        {
-
-            $this->session->set_flashdata('validation_errors', validation_errors());
-            redirect_back();
-
-        } else {
-
-            redirect_back();
-
-        }
-
 
     }
 

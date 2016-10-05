@@ -8,7 +8,7 @@
                     </div>
                     <div class="panel-body">
 
-                        <?php echo form_open('Members/set_member'); ?>
+                        <?php echo form_open('Members/create_member'); ?>
                             <fieldset>
                                 <div class="form-group">
                                     <input class="form-control" placeholder="Username (max 20 chars)" name="username"
@@ -26,7 +26,7 @@
                         $ve = $this->session->flashdata('validation_errors');
 
                         if(isset($ve))
-                            echo '<div class="signup-style"><label>Something went wrong! Please try again.</label> </div>' ?>
+                            echo '<div class="signup-style"><label>' .$ve . '</label> </div>' ?>
                     </div>
                 </div>
             </div>

@@ -25,7 +25,7 @@
                         $ve = $this->session->flashdata('validation_errors');
 
                         if(isset($ve))
-                            echo '<div class="signup-style"><label>Something went wrong! Please try again.</label> </div>' ?>
+                            echo '<div class="signup-style"><label>'. $ve .'</label> </div>' ?>
                     </div>
                 </div>
             </div>

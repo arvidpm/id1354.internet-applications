@@ -12,10 +12,19 @@
         <ul>
             <li><a href="<?php echo base_url() ?>">Home</a></li>
             <li><a href="<?php echo base_url('index.php/calendar') ?>">Calendar</a></li>
-            <li><a href="<?php echo base_url('index.php/members/view/signin') ?>">Sign In</a></li>
-            <?php if (isset($_SESSION['id'])) {
-                echo '<li><a href="php-mysql-login/logged_out.php">Log out</a></li>';
-            } ?>
+            <?php
+            if ($this->session->userdata('logged_in')) {
+
+                $session_data = $this->session->userdata('logged_in');
+
+                echo '<li><a href="' . base_url("index.php/members/logout") . '">Log out</a>';
+
+            } else {
+                echo '<li><a href="' . base_url('index.php/members/view/signin') . '">Sign In</a></li>';
+
+            }
+            ?>
+
         </ul>
     </div>
 </div>
