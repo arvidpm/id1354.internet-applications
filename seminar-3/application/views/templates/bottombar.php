@@ -16,7 +16,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <div class="col-md-2">
                 <h3>Turkey Meatballs</h3>
                 <div class="thumbnail">
-                    <a href="<?php echo base_url('index.php/recipes/view/meatballs') ?>"><img
+                    <a href="<?php echo base_url('recipes/view/meatballs') ?>"><img
                             src="<?php echo base_url('resources/images/Turkey-meatballs.jpg') ?>"
                             alt="Turkey Meatballs"></a>
                 </div>
@@ -24,7 +24,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <div class="col-md-2">
                 <h3>Pancakes</h3>
                 <div class="thumbnail">
-                    <a href="<?php echo base_url('index.php/recipes/view/pancakes') ?>"><img
+                    <a href="<?php echo base_url('recipes/view/pancakes') ?>"><img
                             src="<?php echo base_url('resources/images/AppleOatPancakes_DT.jpg') ?>"
                             alt="Honey Oat Pancakes"></a>
                 </div>

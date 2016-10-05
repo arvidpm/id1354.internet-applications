@@ -112,7 +112,7 @@ class Members extends CI_Controller
 
                 // Successfully created user
                 $this->session->set_flashdata('validation_errors', 'User registration successful, please log in!');
-                redirect(base_url('index.php/members/view/signin'));
+                redirect(base_url('members/view/signin'));
 
             } else {
 

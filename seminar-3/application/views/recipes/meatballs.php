@@ -3,10 +3,9 @@
         <div class="row">
             <div class="col-md-3">
                 <div class="thumbnail">
-                    <a href=""><img src="../../../resources/images/Turkey-meatballs.jpg" alt="Meatballs page"></a>
+                    <a href=""><img src="<?php echo base_url('resources/images/Turkey-meatballs.jpg') ?>" alt="Meatballs page"></a>
                 </div>
                 <h4>Ingredients</h4>
-                <?php echo '$page' ?>
                 <ul>
 
                 </ul>

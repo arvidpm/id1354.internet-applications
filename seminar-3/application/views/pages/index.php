@@ -12,12 +12,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <div class="row">
             <div class="col-md-4">
                 <div class="thumbnail">
-                    <a href="<?php echo base_url('index.php/recipes/view/meatballs') ?>"><img
+                    <a href="<?php echo base_url('recipes/view/meatballs') ?>"><img
                             src="<?php echo base_url('resources/images/Turkey-meatballs.jpg') ?>" alt="Meatballs page"></a>
                     <div class="other-recipes"><h4>Turkey Meatballs</h4></div>
                 </div>
                 <div class="thumbnail">
-                    <a href="<?php echo base_url('index.php/recipes/view/pancakes') ?>"><img
+                    <a href="<?php echo base_url('recipes/view/pancakes') ?>"><img
                             src="<?php echo base_url('resources/images/AppleOatPancakes_DT.jpg') ?>"
                             alt="Pancakes page"></a>
                     <div class="other-recipes"><h4>Honey-Oatmeal Pancakes</h4></div>
