@@ -10,10 +10,11 @@
  *  recipe_mvc and the table: users and returns desired
  *  data to the controller Members.php
  */
+
 class Members_model extends CI_Model
 {
 
-
+    // Fetches a matching user from the database and if found checks its password
     public function get_members($username, $password)
     {
 
@@ -36,7 +37,7 @@ class Members_model extends CI_Model
 
     }
 
-
+    // Inserts a new user to database
     public function set_members($username, $password)
     {
 
@@ -60,7 +61,7 @@ class Members_model extends CI_Model
 
     }
 
-
+    // Hashes user password
     private function hashPassword($password)
     {
 
@@ -70,7 +71,7 @@ class Members_model extends CI_Model
 
     }
 
-
+    // Checks user password against hashed user password
     private function verifyPassword(&$result, $password)
     {
 

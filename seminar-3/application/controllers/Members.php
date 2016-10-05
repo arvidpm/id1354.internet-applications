@@ -56,7 +56,7 @@ class Members extends CI_Controller
     {
 
         $this->form_validation->set_rules('username', 'Username', 'trim|required|max_length[20]|xss_clean');
-        $this->form_validation->set_rules('password', 'Password', 'trim|required|xss_clean|callback_checkDatabase');
+        $this->form_validation->set_rules('password', 'Password', 'trim|required|xss_clean');
 
 
         if ($this->form_validation->run() == FALSE) // Didn't validate
@@ -67,16 +67,32 @@ class Members extends CI_Controller
 
         } else {
 
-            redirect(base_url());
+            // set variables from the form
+            $username = $this->input->post('username');
+            $password = $this->input->post('password');
+
+            if ($this->checkDatabase($username, $password)){
+
+                // User login ok
+                redirect(base_url());
+            } else {
+
+                // User login failed
+                $this->session->set_flashdata('validation_errors', 'Incorrect username or password!');
+                redirect_back();
+
+            }
         }
     }
+
+
 
 
     function create_member()
     {
 
         $this->form_validation->set_rules('username', 'Username', 'trim|required|max_length[20]|xss_clean');
-        $this->form_validation->set_rules('password', 'Password', 'trim|required|xss_clean|callback_setDatabase');
+        $this->form_validation->set_rules('password', 'Password', 'trim|required|xss_clean');
 
 
         if ($this->form_validation->run() == FALSE) // Didn't validate
@@ -87,19 +103,31 @@ class Members extends CI_Controller
 
         } else {
 
-            $this->session->set_flashdata('validation_errors', 'Successfully created a user! Please sign in.');
-            redirect(base_url('index.php/members/view/signin'));
+            // set variables from the form
+            $username = $this->input->post('username');
+            $password = $this->input->post('password');
 
+            if ($this->setDatabase($username, $password)){
+
+                // Successfully created user
+                $this->session->set_flashdata('validation_errors', 'User registration successful, please log in!');
+                redirect(base_url('index.php/members/view/signin'));
+
+            } else {
+
+                // Failed creating user (this should never happen)
+                $this->session->set_flashdata('validation_errors', validation_errors());
+                redirect_back();
+
+            }
         }
-
-
     }
 
 
-    function checkDatabase($password)
-    {
 
-        $username = $this->input->post('username');
+
+    function checkDatabase($username, $password)
+    {
 
         $result = $this->members_model->get_members($username, $password);
 
@@ -126,10 +154,8 @@ class Members extends CI_Controller
     }
 
 
-    function setDatabase($password)
+    function setDatabase($username, $password)
     {
-
-        $username = $this->input->post('username');
 
         $result = $this->members_model->set_members($username, $password);
 
