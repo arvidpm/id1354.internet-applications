@@ -75,6 +75,7 @@ class Members extends CI_Controller
 
                 // User login ok
                 redirect(base_url());
+
             } else {
 
                 // User login failed

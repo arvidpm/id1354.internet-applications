@@ -10,30 +10,18 @@
  *  recipe_mvc and the table: users and returns desired
  *  data to the controller Members.php
  */
-
 class Members_model extends CI_Model
 {
 
-    // Fetches a matching user from the database and if found checks its password
+    // Fetches a matching user from the database and then check its password
     public function get_members($username, $password)
     {
 
-        $this->db->select('id, username, password');
-        $this->db->from('members');
-        $this->db->where('username', $username);
-        $this->db->limit(1);
+        $query = $this->db->get_where('members', array('username' => $username), 1);
+        // Produces: SELECT * FROM members WHERE 'username' = $username LIMIT 1
 
-        $query = $this->db->get();
-
-        if ($query->num_rows() == 1) {
-
-            $result = $query->result();
-            return $this->verifyPassword($result, $password);
-
-        } else {
-
-            return FALSE;
-        }
+        $result = $query->result();
+        return $this->verifyPassword($result, $password);
 
     }
 
@@ -48,31 +36,19 @@ class Members_model extends CI_Model
             'password' => $dbPassword
         );
 
-        $query = $this->db->insert('members', $data);
-        // Produces: INSERT INTO mytable (username, password) VALUES ('My Username', 'My Hashed Password')
-
-        if ($query) {
-            return TRUE;
-
-        } else {
-
-            return FALSE;
-        }
+        return $query = $this->db->insert('members', $data);
+        // Produces: INSERT INTO members (username, password) VALUES ('My Username', 'My Hashed Password')
 
     }
 
     // Hashes user password
     private function hashPassword($password)
     {
-
-        $hashed_password = password_hash($password, PASSWORD_DEFAULT);
-
-        return $hashed_password;
-
+        return $hashed_password = password_hash($password, PASSWORD_DEFAULT);
     }
 
     // Checks user password against hashed user password
-    private function verifyPassword(&$result, $password)
+    private function verifyPassword($result, $password)
     {
 
         foreach ($result as $row) {
@@ -85,6 +61,7 @@ class Members_model extends CI_Model
             else
                 return $result;
         }
+        return FALSE;
     }
 
 }
