@@ -3,14 +3,15 @@
         <div class="row">
             <div class="col-md-3">
                 <div class="thumbnail">
-                    <a href=""><img src="<?php echo base_url('resources/images/Turkey-meatballs.jpg') ?>" alt="Meatballs page"></a>
+                    <a href=""><img src="<?php echo base_url('resources/images/Turkey-meatballs.jpg') ?>"
+                                    alt="Meatballs page"></a>
                 </div>
                 <h4>Ingredients</h4>
                 <ul>
-                    <?php echo $site ?>
+
                 </ul>
                 <ul>
-
+                    <p>test</p>
                 </ul>
             </div>
             <div class="col-md-5">
@@ -25,13 +26,24 @@
                         <ul class="commentList">
                             <?php
 
-                            if($result) {
+                            if ($result) {
                                 foreach ($result as $row) {
 
                                     echo
-                                    '<li>
+                                        '<li>
                                         <div class="commenterImage">
-                                            <img src="../resources/images/comment_placeholder.jpg" />';
+                                            <img src="' . base_url('resources/images/comment_placeholder.jpg') . '" />';
+
+                                    if (isset($this->session->userdata['logged_in']['id'])) {
+
+                                        if ($this->session->userdata['logged_in']['id'] == $row->user) {
+                                            echo 'hello!';
+                                        } else {
+                                            echo 'false';
+                                        }
+                                    } else {
+                                        echo 'fail';
+                                    }
 
                                     echo
                                         '</div>

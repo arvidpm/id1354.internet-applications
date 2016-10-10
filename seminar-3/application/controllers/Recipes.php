@@ -32,26 +32,22 @@ class Recipes extends CI_Controller
         }
 
         $data = array(
-            'recipe',
+            'recipe' => $page,
             'result',
             'site'
         );
-
-        $data['recipe'] = $page;
-
 
         $this->load->view('templates/header');
         $this->load->view('templates/jumbotron');
         $this->load->view('templates/navbar');
 
-        if ($page == 'meatballs')
-        {
-            $this->loadMeatballs($data, $page);
+        if ($page == 'meatballs') {
+            $this->loadMeatballs($data);
         } else {
-            $this->loadPancakes($data, $page);
+            $this->loadPancakes($data);
         }
 
-        $this->load->view('recipes/'.$page.'.php', $data);
+        $this->load->view('recipes/' . $page . '.php', $data);
         $this->load->view('templates/bottombar');
         $this->load->view('templates/footer');
 

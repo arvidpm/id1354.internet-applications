@@ -141,6 +141,7 @@ class Members extends CI_Controller
                         'username' => $row->username
                     );
 
+                // Is used like this: $this->session->userdata['logged_in']['id'];
                 $this->session->set_userdata('logged_in', $sess_array);
             }
 

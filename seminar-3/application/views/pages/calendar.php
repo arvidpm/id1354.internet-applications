@@ -1,13 +1,3 @@
-<?php
-/**
- * Created by PhpStorm.
- * User: arvid
- * Date: 2016-10-01
- * Time: 14:41
- */
-
-?>
-
 <div class="cal-container">
     <div class="grid-calendar">
         <div class="row calendar-week-header">

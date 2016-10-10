@@ -1,21 +1,3 @@
-<?php
-
-/**
- * Created by PhpStorm.
- * User: arvid
- * Date: 2016-09-14
- * Time: 20:47
- */
-
-# Setting page where user's at
-$_SESSION['page'] = 1;
-
-# Loading recipe data
-$url = '../resources/recipes/pancakes.xml';
-$xml = simplexml_load_file($url) or die("Can't load file.");
-
-?>
-
 <div class="recipes-list">
     <div class="container">
         <?php foreach ($xml->recipe as $recipe) {
@@ -118,32 +100,6 @@ $xml = simplexml_load_file($url) or die("Can't load file.");
 
                         </form>
 
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="other-recipes">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-2">
-                    <h3>Turkey Meatballs</h3>
-                    <div class="thumbnail">
-                        <a href="meatballs.php"><img src="../../../resources/images/Turkey-meatballs.jpg"
-                                                     alt="Meatballs page"></a>
-                    </div>
-                </div>
-                <div class="col-md-2">
-                    <h3>Icecream</h3>
-                    <div class="thumbnail">
-                        <a href=""><img src="../../../resources/images/icecream.jpg" alt="Colorful Icecream"></a>
-                    </div>
-                </div>
-                <div class="col-md-2">
-                    <h3>BLT Sandwich</h3>
-                    <div class="thumbnail">
-                        <a href=""><img src="../../../resources/images/ultimate_BLT_sandwich.jpg"
-                                        alt="Gorgeous BLT Sandwich"></a>
                     </div>
                 </div>
             </div>
