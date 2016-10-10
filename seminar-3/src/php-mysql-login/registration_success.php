@@ -19,10 +19,10 @@ include_once("session_start.php");
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="refresh" content="3;url=signin.php" />
 
-    <link rel="stylesheet" href="../../resources/css/reset.css">
-    <link rel="stylesheet" href="../../resources/css/shift.css">
-    <link rel="stylesheet" href="../../resources/css/bootstrap.css">
-    <link rel="stylesheet" href="../../resources/css/main.css">
+    <link rel="stylesheet" href="../resources/css/reset.css">
+    <link rel="stylesheet" href="../resources/css/shift.css">
+    <link rel="stylesheet" href="../resources/css/bootstrap.css">
+    <link rel="stylesheet" href="../resources/css/main.css">
 </head>
 <body>
 <div class="jumbotron">

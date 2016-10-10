@@ -1,10 +1,9 @@
 <?php
 
 $servername = "localhost";
-$username = "tastyrecipes";
-$password = "BetterPassword!";
-$dbname = "id1354-test";
-
+$username = "root";
+$password = "password";
+$dbname = "id1354";
 
 # Establish connection to a local database
 $dbCon = mysqli_connect($servername, $username, $password, $dbname);

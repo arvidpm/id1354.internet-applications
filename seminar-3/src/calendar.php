@@ -20,10 +20,10 @@ and open the template in the editor.
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <link rel="stylesheet" href="../resources/css/reset.css">
-    <link rel="stylesheet" href="../resources/css/shift.css">
-    <link rel="stylesheet" href="../resources/css/bootstrap.css">
-    <link rel="stylesheet" href="../resources/css/main.css">
+    <link rel="stylesheet" href="resources/css/reset.css">
+    <link rel="stylesheet" href="resources/css/shift.css">
+    <link rel="stylesheet" href="resources/css/bootstrap.css">
+    <link rel="stylesheet" href="resources/css/main.css">
 </head>
 <body>
     <div class="jumbotron">
@@ -58,8 +58,8 @@ and open the template in the editor.
 		<div class="row calendar-week">
 			<div class="col-xs-1 grid-cell previous-month"><div><div><span>31</span></div></div></div>
 			<div class="col-xs-1 grid-cell"><div><div><span>1</span></div></div></div>
-			<div class="col-xs-1 grid-cell"><a href="../application/views/recipes/meatballs.php">
-                <img class="img-responsive" src="../resources/images/Turkey-meatballs-square.jpg" alt="Delicious Turkey Meatballs"></a></div>
+			<div class="col-xs-1 grid-cell"><a href="recipes/meatballs.php">
+                <img class="img-responsive" src="resources/images/Turkey-meatballs-square.jpg" alt="Delicious Turkey Meatballs"></a></div>
 			<div class="col-xs-1 grid-cell"><div><div><span>3</span></div></div></div>
 			<div class="col-xs-1 grid-cell"><div><div><span>4</span></div></div></div>
 			<div class="col-xs-1 grid-cell"><div><div><span>5</span></div></div></div>
@@ -68,7 +68,7 @@ and open the template in the editor.
 
 		<div class="row calendar-week">
 			<div class="col-xs-1 grid-cell"><a href="">
-                <img class="img-responsive" src="../resources/images/ultimate_BLT_sandwich-square.jpg" alt="Gorgeous BLT Sandwich"></a></div>
+                <img class="img-responsive" src="resources/images/ultimate_BLT_sandwich-square.jpg" alt="Gorgeous BLT Sandwich"></a></div>
 			<div class="col-xs-1 grid-cell"><div><div><span>8</span></div></div></div>
 			<div class="col-xs-1 grid-cell"><div><div><span>9</span></div></div></div>
 			<div class="col-xs-1 grid-cell"><div><div><span>10</span></div></div></div>
@@ -82,14 +82,14 @@ and open the template in the editor.
 			<div class="col-xs-1 grid-cell"><div><div><span>15</span></div></div></div>
 			<div class="col-xs-1 grid-cell"><div><div><span>16</span></div></div></div>
 			<div class="col-xs-1 grid-cell"><div><div><span>17</span></div></div></div>
-			<div class="col-xs-1 grid-cell"><a href="../application/views/recipes/pancakes.php"><img class="img-responsive" src="../resources/images/AppleOatPancakes_DT-square.jpg" alt="Delicious Honey Oat Pancakes"></a></div>
+			<div class="col-xs-1 grid-cell"><a href="recipes/pancakes.php"><img class="img-responsive" src="resources/images/AppleOatPancakes_DT-square.jpg" alt="Delicious Honey Oat Pancakes"></a></div>
 			<div class="col-xs-1 grid-cell"><div><div><span>19</span></div></div></div>
 			<div class="col-xs-1 grid-cell"><div><div><span>20</span></div></div></div>
 		</div>
 
 		<div class="row calendar-week">
 			<div class="col-xs-1 grid-cell"><a href="">
-                <img class="img-responsive" src="../resources/images/icecream-square.jpg" alt="Delicious Icecream"></a></div>
+                <img class="img-responsive" src="resources/images/icecream-square.jpg" alt="Delicious Icecream"></a></div>
 			<div class="col-xs-1 grid-cell"><div><div><span>22</span></div></div></div>
 			<div class="col-xs-1 grid-cell"><div><div><span>23</span></div></div></div>
 			<div class="col-xs-1 grid-cell"><div><div><span>24</span></div></div></div>

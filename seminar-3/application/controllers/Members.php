@@ -55,6 +55,10 @@ class Members extends CI_Controller
     function get_member()
     {
 
+        /*
+         * Provides Cross Site Script Hack filtering.
+         * This function is an alias for CI_Input::xss_clean(). For more info, please see the Input Library documentation.
+         * */
         $this->form_validation->set_rules('username', 'Username', 'trim|required|max_length[20]|xss_clean');
         $this->form_validation->set_rules('password', 'Password', 'trim|required|xss_clean');
 
@@ -71,7 +75,7 @@ class Members extends CI_Controller
             $username = $this->input->post('username');
             $password = $this->input->post('password');
 
-            if ($this->checkDatabase($username, $password)){
+            if ($this->checkDatabase($username, $password)) {
 
                 // User login ok
                 redirect(base_url());
@@ -85,8 +89,6 @@ class Members extends CI_Controller
             }
         }
     }
-
-
 
 
     function create_member()
@@ -108,7 +110,7 @@ class Members extends CI_Controller
             $username = $this->input->post('username');
             $password = $this->input->post('password');
 
-            if ($this->setDatabase($username, $password)){
+            if ($this->setDatabase($username, $password)) {
 
                 // Successfully created user
                 $this->session->set_flashdata('validation_errors', 'User registration successful, please log in!');
@@ -123,8 +125,6 @@ class Members extends CI_Controller
             }
         }
     }
-
-
 
 
     function checkDatabase($username, $password)

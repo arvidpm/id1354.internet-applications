@@ -7,7 +7,7 @@
                 </div>
                 <h4>Ingredients</h4>
                 <ul>
-
+                    <?php echo $site ?>
                 </ul>
                 <ul>
 
@@ -23,6 +23,26 @@
                     </div>
                     <div class="actionBox">
                         <ul class="commentList">
+                            <?php
+
+                            if($result) {
+                                foreach ($result as $row) {
+
+                                    echo
+                                    '<li>
+                                        <div class="commenterImage">
+                                            <img src="../resources/images/comment_placeholder.jpg" />';
+
+                                    echo
+                                        '</div>
+                                        <div class="commentText">                                           
+                                            <p class="">' . $row->comment . '</p>
+                                        </div>
+                                    </li>';
+                                }
+                            }
+
+                            ?>
 
                         </ul>
 
