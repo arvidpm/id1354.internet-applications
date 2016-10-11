@@ -43,11 +43,14 @@ class Recipes extends CI_Controller
 
         if ($page == 'meatballs') {
             $this->loadMeatballs($data);
+            $this->load->view('recipes/meatballs');
+
         } else {
             $this->loadPancakes($data);
+            $this->load->view('recipes/pancakes');
         }
 
-        $this->load->view('recipes/' . $page . '.php', $data);
+        $this->load->view('recipes/commentbox', $data);
         $this->load->view('templates/bottombar');
         $this->load->view('templates/footer');
 
