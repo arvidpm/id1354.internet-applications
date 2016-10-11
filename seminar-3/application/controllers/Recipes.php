@@ -42,12 +42,10 @@ class Recipes extends CI_Controller
         $this->load->view('templates/navbar');
 
         if ($page == 'meatballs') {
-            $this->loadMeatballs($data);
-            $this->load->view('recipes/meatballs');
+            $this->loadMeatballs($data, '0');
 
         } else {
-            $this->loadPancakes($data);
-            $this->load->view('recipes/pancakes');
+            $this->loadPancakes($data, '1');
         }
 
         $this->load->view('recipes/commentbox', $data);
@@ -56,17 +54,20 @@ class Recipes extends CI_Controller
 
     }
 
-    private function loadMeatballs(&$data)
+    private function loadMeatballs(&$data, $site)
     {
-        $data['result'] = $this->comments_model->getComments('0');
-        $data['site'] = '0';
+        $this->load->view('recipes/meatballs');
+        $data['result'] = $this->comments_model->getComments($site);
+        $data['site'] = $site;
 
     }
 
-    private function loadPancakes(&$data)
+    private function loadPancakes(&$data, $site)
     {
-        $data['result'] = $this->comments_model->getComments('1');
-        $data['site'] = '1';
+        $this->load->view('recipes/pancakes');
+        $data['result'] = $this->comments_model->getComments($site);
+        $data['site'] = $site;
+
     }
 
 }

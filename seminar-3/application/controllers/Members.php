@@ -72,8 +72,8 @@ class Members extends CI_Controller
         } else {
 
             // set variables from the form
-            $username = $this->input->post('username');
-            $password = $this->input->post('password');
+            $username = strip_tags($this->input->post('username'));
+            $password = strip_tags($this->input->post('password'));
 
             if ($this->checkDatabase($username, $password)) {
 
@@ -107,8 +107,8 @@ class Members extends CI_Controller
         } else {
 
             // set variables from the form
-            $username = $this->input->post('username');
-            $password = $this->input->post('password');
+            $username = strip_tags($this->input->post('username'));
+            $password = strip_tags($this->input->post('password'));
 
             if ($this->setDatabase($username, $password)) {
 
@@ -141,7 +141,9 @@ class Members extends CI_Controller
                         'username' => $row->username
                     );
 
-                // Is used like this: $this->session->userdata['logged_in']['id'];
+                /* Is used like this: $this->session->userdata['logged_in']['id'];
+                 * Or storing it to a variable $something and using it.
+                 */
                 $this->session->set_userdata('logged_in', $sess_array);
             }
 

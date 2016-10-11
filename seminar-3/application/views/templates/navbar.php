@@ -15,11 +15,10 @@
             <?php
             if ($this->session->userdata('logged_in')) {
 
-                $session_data = $this->session->userdata('logged_in');
-
                 echo '<li><a href="' . base_url("members/logout") . '">Log out</a>';
 
             } else {
+
                 echo '<li><a href="' . base_url('members/view/signin') . '">Sign In</a></li>';
 
             }

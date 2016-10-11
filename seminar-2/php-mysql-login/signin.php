@@ -24,11 +24,16 @@ if ($_POST['submit']) {
         $row = mysqli_fetch_row($query);
         $userId = $row[0];
         $dbUsername = $row[1];
-        $dbPassword = $row[2];
+        $dbHashPassword = $row[2];
+
+        $verifiedPassword = password_verify($password, $dbHashPassword);
+
     }
 
 
-    if ($username == $dbUsername && $password == $dbPassword) {
+
+
+    if ($username == $dbUsername && $verifiedPassword) {
 
         $_SESSION['username'] = $username;
         $_SESSION['id'] = $userId;

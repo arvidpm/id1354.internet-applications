@@ -11,9 +11,33 @@ class Comments_model extends CI_Model
 
     function getComments($site)
     {
+        $this->db->select('cid, comment, page, members.id, username');
+        $this->db->from('comments');
+        $this->db->join('members', 'members.id = comments.user');
+        $this->db->where('page', $site);
 
-        $query = $this->db->get_where('comments', array('page' => $site));
+        $query = $this->db->get();
+
         return $query->result();
+    }
+
+    function addComments($comment, $page, $membersid)
+    {
+
+        $commentData = array(
+            'comment' => $comment,
+            'page' => $page,
+            'user' => $membersid
+        );
+
+        $this->db->insert('comments', $commentData);
+
+    }
+
+    function delComments($cid)
+    {
+
+        $this->db->delete('comments', array('cid' => $cid));
 
     }
 

@@ -119,7 +119,7 @@ and open the template in the editor.
 
                                     '<li>
                                         <div class="commenterImage">
-                                            <img src="../resources/images/comment_placeholder.jpg" />';
+                                            <img src="../resources/images/comment_placeholder.jpg" alt="placeholder picture"/>';
 
                                     if ($user === $_SESSION['id']) {
                                         echo '<a href="../php-mysql-login/delete_comment.php?del=' .$id. ' ">
