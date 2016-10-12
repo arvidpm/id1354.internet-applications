@@ -26,13 +26,13 @@
 
                 if ($session['id'] == $row->id)
                 {
+                    ?>
 
-                    $attributes = array('cid' => $row->cid);
-                    echo form_open('Comments/delComment', $attributes);
-                    // echo '<a href=""><img src=" '. base_url('resources/images/trashcan.png') .'  " alt="trashcan icon"></a>';
-                    echo '<input type="submit" name="submit" value="Delete">';
-                    echo form_close();
+                    <a href="<?php echo base_url('Comments/delComment/'. $row->cid); ?>"><img src="<?php echo base_url('resources/images/trashcan.png') ?>" alt="trashcan icon"></a>
+
+                    <?php
                 }
+                
                 echo
                     '</div>
                      <div class="commentText">                                           

@@ -35,28 +35,13 @@ class Comments extends CI_Controller
         }
     }
 
-    function delComment()
+    function delComment($cid)
     {
 
-        $this->form_validation->set_rules('submit', 'submit');
-
-        if($this->form_validation->run() == FALSE) {
-
-        }
-        else {
-
-            $cid = $this->input->post('cid');
-
-            $this->comments_model->delComments($cid);
-            redirect_back();
-        }
+        $this->comments_model->delComments($cid);
+        redirect_back();
 
     }
-
-
-
-
-
 
 
 }
