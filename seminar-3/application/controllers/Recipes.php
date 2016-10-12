@@ -6,12 +6,8 @@
  * Date: 2016-09-28
  * Time: 14:04
  *
- * Unused for the moment
- *
- * $this->load->model('xml_model');
- * $data['title'] = $this->xml_model->getTitle($page);
- *
  */
+
 class Recipes extends CI_Controller
 {
 

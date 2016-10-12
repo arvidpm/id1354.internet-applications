@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Created by PhpStorm.
  * User: arvid
@@ -20,12 +21,11 @@ class Comments extends CI_Controller
     {
         $this->form_validation->set_rules('comment', 'Comment', 'trim|required|xss_clean');
 
-        if($this->form_validation->run() == FALSE) {
+        if ($this->form_validation->run() == FALSE) {
 
-            $this->session->set_flashdata('validation_errors_comments',validation_errors());
+            $this->session->set_flashdata('validation_errors_comments', validation_errors());
             redirect_back();
-        }
-        else {
+        } else {
             $comment = strip_tags($this->input->post('comment'));
             $page = $this->input->post('site');
             $membersid = $this->input->post('membersid');
