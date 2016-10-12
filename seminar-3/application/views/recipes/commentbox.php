@@ -27,7 +27,7 @@
                 if ($session['id'] == $row->id) {
                     ?>
 
-                    <a href="<?php echo base_url('Comments/delComment/' . $row->cid); ?>"><img
+                    <a href="<?php echo base_url('Comments/delComment/' . $row->id . '/' . $row->cid); ?>"><img
                             src="<?php echo base_url('resources/images/trashcan.png') ?>" alt="trashcan icon"></a>
 
                     <?php
@@ -56,7 +56,7 @@
 
     echo form_open('Comments/addComment', $attributes, $hidden);
 
-    if ($session['id']) {
+    if ($session) {
 
         echo
         '<div class="form-group">

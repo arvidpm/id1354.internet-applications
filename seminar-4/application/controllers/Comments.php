@@ -35,12 +35,12 @@ class Comments extends CI_Controller
         }
     }
 
-    function delComment($cid)
+    function delComment($userid, $cid)
     {
 
         $session = $this->session->userdata('logged_in');
 
-        if (isset($session)) {
+        if ($session['id'] === $userid) {
 
             $this->comments_model->delComments($cid);
             redirect_back();
