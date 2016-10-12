@@ -47,38 +47,40 @@
     </ul>
 
     <?php
-     if ($session = $this->session->userdata('logged_in')){
+    $session = $this->session->userdata('logged_in');
 
-         $attributes = array('class' => 'form-inline', 'role' => 'form');
-         $hidden = array('site' => $site, 'membersid' => $session['id']);
+    $attributes = array('class' => 'form-inline', 'role' => 'form');
+    $hidden = array('site' => $site, 'membersid' => $session['id']);
 
-         echo form_open('Comments/addComment', $attributes, $hidden);
+    echo form_open('Comments/addComment', $attributes, $hidden);
 
-         echo '<div class="form-group">
+     if ($session['id']){
+
+        echo
+         '<div class="form-group">
             <input class="form-control" type="text" placeholder="Your comment" name="comment" />
         </div>
         <div class="form-group">
             <button class="btn btn-default">Post</button>
         </div>';
 
-         echo form_close();
-         echo validation_errors();
 
-         $vec = $this->session->flashdata('validation_errors_comments');
-
-         if(isset($vec))
-             echo '<span class="validation_error">'.$vec.'</span>';
      } else {
 
-         echo '<div class="form-group">';
-         echo '<input class="form-control" type="text" placeholder="Log in to comment!"/>';
-         echo '</div>';
+         echo '<div class="form-group">
+                <input class="form-control" type="text" placeholder="Log in to comment!"/>
+               </div>';
      }
+
+    echo form_close();
+
+    $vec = $this->session->flashdata('validation_errors_comments');
 
     ?>
 </div>
 
 <!--- Closing divs needed for recipe (meatballs.php, pancakes.php) pages --->
+
 </div>
 </div>
 </div>
