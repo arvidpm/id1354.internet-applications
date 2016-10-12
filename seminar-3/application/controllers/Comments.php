@@ -38,8 +38,18 @@ class Comments extends CI_Controller
     function delComment($cid)
     {
 
-        $this->comments_model->delComments($cid);
-        redirect_back();
+        $session = $this->session->userdata('logged_in');
+
+        if (isset($session)) {
+
+            $this->comments_model->delComments($cid);
+            redirect_back();
+        }
+        else{
+            echo 'Not logged in fool!';
+        }
+
+
 
     }
 

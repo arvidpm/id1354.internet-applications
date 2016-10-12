@@ -36,13 +36,13 @@
                 echo
                     '</div>
                      <div class="commentText">                                           
-                     <p class="">' . $row->comment . '</p>
+                     <p>' . $row->comment . '</p>
                      <span class="date sub-text">' . $row->username . '</span>
                      </div>
                      </li>';
             }
         } else {
-            echo '<p class="Inga kommentarer ännu!"></p>';
+            echo '<p>Inga kommentarer ännu!</p>';
         }
         ?>
 
