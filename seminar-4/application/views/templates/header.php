@@ -1,3 +1,9 @@
+<?php
+
+defined('BASEPATH') OR exit('No direct script access allowed');
+
+?>
+
 <!DOCTYPE html>
 <!--
 
@@ -20,5 +26,9 @@ Created on : 2015-sept-01, 14:04:08
     <link rel="stylesheet" href="<?php echo base_url('resources/css/main.css') ?>">
     <link rel="stylesheet" href="<?php echo base_url('resources/css/recipes.css') ?>">
     <link rel="stylesheet" href="<?php echo base_url('resources/css/commentbox.css') ?>">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.4.0/knockout-min.js" type="text/javascript"></script>
+    <script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
+
 </head>
 <body>

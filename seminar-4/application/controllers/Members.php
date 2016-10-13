@@ -1,13 +1,11 @@
 <?php
-
+defined('BASEPATH') OR exit('No direct script access allowed');
 /**
  * Created by PhpStorm.
  * User: arvid
  * Date: 2016-10-02
  * Time: 23:20
  */
-
-defined('BASEPATH') OR exit('No direct script access allowed');
 
 /**
  *    This controller handles all the calls to the model <code>
@@ -48,6 +46,9 @@ class Members extends CI_Controller
         $this->load->view('members/' . $page);
         $this->load->view('templates/bottombar');
         $this->load->view('templates/footer');
+
+        # Caches output for 10 minutes
+        $this->output->cache(10);
 
     }
 
@@ -94,8 +95,10 @@ class Members extends CI_Controller
     function create_member()
     {
 
+
         $this->form_validation->set_rules('username', 'Username', 'trim|required|max_length[20]|xss_clean');
         $this->form_validation->set_rules('password', 'Password', 'trim|required|xss_clean');
+        $this->form_validation->set_rules('re-password', 'Password Confirmation', 'trim|required|xss_clean|matches[password]');
 
 
         if ($this->form_validation->run() == FALSE) // Didn't validate

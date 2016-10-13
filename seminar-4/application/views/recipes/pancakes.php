@@ -1,3 +1,6 @@
+<?php
+defined('BASEPATH') OR exit('No direct script access allowed');
+?>
 <div class="recipes-list">
     <div class="container">
         <h2>Honey-Oatmeal Pancakes</h2>

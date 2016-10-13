@@ -1,3 +1,6 @@
+<?php
+defined('BASEPATH') OR exit('No direct script access allowed');
+?>
 <div class="login-style">
     <div class="container">
         <div class="row">
@@ -16,6 +19,10 @@
                                 </div>
                                 <div class="form-group">
                                     <input class="form-control" placeholder="Choose a strong password" name="password"
+                                           type="password">
+                                </div>
+                                <div class="form-group">
+                                    <input class="form-control" placeholder="Repeat password" name="re-password"
                                            type="password">
                                 </div>
                                 <input class="btn btn-lg btn-success btn-block" type="submit" name="submit"

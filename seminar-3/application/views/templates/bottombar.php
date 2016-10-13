@@ -1,13 +1,11 @@
 <?php
+defined('BASEPATH') OR exit('No direct script access allowed');
 /**
  * Created by PhpStorm.
  * User: arvid
  * Date: 2016-10-01
  * Time: 14:56
  */
-
-defined('BASEPATH') OR exit('No direct script access allowed');
-
 ?>
 
 <div class="other-recipes">

@@ -1,3 +1,6 @@
+<?php
+defined('BASEPATH') OR exit('No direct script access allowed');
+?>
 <div class="cal-container">
     <div class="grid-calendar">
         <div class="row calendar-week-header">
