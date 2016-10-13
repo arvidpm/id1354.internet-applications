@@ -30,6 +30,9 @@ class Pages extends CI_Controller {
         $this->load->view('pages/'.$page);
         $this->load->view('templates/footer');
 
+        # Caches output for 10 minutes
+        $this->output->cache(10);
+
     }
 
 }

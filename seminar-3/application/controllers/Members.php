@@ -47,9 +47,6 @@ class Members extends CI_Controller
         $this->load->view('templates/bottombar');
         $this->load->view('templates/footer');
 
-        # Caches output for 10 minutes
-        $this->output->cache(10);
-
     }
 
 
