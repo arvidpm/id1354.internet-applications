@@ -1,5 +1,6 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
+
 /**
  * Created by PhpStorm.
  * User: arvid
@@ -7,7 +8,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  * Time: 14:04
  *
  */
-
 class Recipes extends CI_Controller
 {
 
@@ -38,10 +38,13 @@ class Recipes extends CI_Controller
         $this->load->view('templates/navbar');
 
         if ($page == 'meatballs') {
+
             $this->loadMeatballs($data, '0');
 
         } else {
+
             $this->loadPancakes($data, '1');
+
         }
 
         $this->load->view('recipes/commentbox', $data);
@@ -53,6 +56,7 @@ class Recipes extends CI_Controller
 
     private function loadMeatballs(&$data, $site)
     {
+
         $this->load->view('recipes/meatballs');
         $data['result'] = $this->comments_model->getComments($site);
         $data['site'] = $site;
@@ -61,6 +65,7 @@ class Recipes extends CI_Controller
 
     private function loadPancakes(&$data, $site)
     {
+
         $this->load->view('recipes/pancakes');
         $data['result'] = $this->comments_model->getComments($site);
         $data['site'] = $site;

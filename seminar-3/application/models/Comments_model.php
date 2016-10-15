@@ -1,12 +1,12 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
+
 /**
  * Created by PhpStorm.
  * User: arvid
  * Date: 2016-09-29
  * Time: 16:53
  */
-
 class Comments_model extends CI_Model
 {
 
