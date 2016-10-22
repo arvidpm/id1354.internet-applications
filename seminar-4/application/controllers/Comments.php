@@ -20,12 +20,13 @@ class Comments extends CI_Controller
     {
 
         $site = $this->input->post('site');
-        $page = $this->input->post('page');
+
+        echo $site;
 
         if ($site == "meatballs") {
-            echo $this->comments_model->getComments($page);
+            echo $this->comments_model->getComments('0');
         } else {
-            echo $this->comments_model->getComments($page);
+            echo $this->comments_model->getComments('1');
         }
 
     }

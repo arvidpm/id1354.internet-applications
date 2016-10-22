@@ -4,48 +4,48 @@
  * This is the Comments ViewModel powered by Knockout JS
  */
 
-var CommentViewModel = function () {
+var CommentsViewModel = function () {
 
     var self = this;
-    self.comment = ko.observableArray([]);
+    self.comments = ko.observableArray([]);
     self.commentText = ko.observable("");
 
-    var site = $("#title").html();
-    var post;
-
+    var site = $("#recipe_title").html();
     if (site == "Meatballs")
-        post = {"site": "meatballs", "page": "0"};
+        var postData = {"site": "meatballs", "page": "0"};
     else
-        post = {"site": "pancakes", "page": "1"};
+        var postData = {"site": "pancakes", "page": "1"};
 
     /* get the user id to check if user can edit a comment */
     $.post("Members/get_member_id", function (secondData) {
 
         /* Get comments when loading page */
-        $.post("/Comments/getComment", post, function (data) {
+        $.post("Comments/getComment", postData, function (data) {
             for (var i in data) {
-                if (data[i].userid == secondData) {
-                    self.comments.push({
-                        member: data[i].username,
-                        comment: data[i].content,
-                        id: data[i].cid,
+                if (data[i].id == secondData) {
+                    self.comments.push
+                    ({
+                        username: data[i].username,
+                        comment: data[i].comment,
+                        cid: data[i].cid,
                         canDelete: true
                     });
-                }
-                else {
-                    self.comments.push({
-                        member: data[i].username,
-                        comment: data[i].content,
-                        id: data[i].cid,
+
+                } else {
+                    self.comments.push
+                    ({
+                        username: data[i].username,
+                        comment: data[i].comment,
+                        cid: data[i].cid,
                         canDelete: false
                     });
                 }
             }
-            fetchFromServer();
+            //fetchFromServer();
         }, "json");
     });
 
-    
+
 };
 
-ko.applyBindings(new CommentViewModel());
+ko.applyBindings(new CommentsViewModel());
