@@ -1,12 +1,12 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
+
 /**
  * Created by PhpStorm.
  * User: arvid
  * Date: 2016-10-11
  * Time: 20:36
  */
-
 class Comments extends CI_Controller
 {
 
@@ -14,6 +14,20 @@ class Comments extends CI_Controller
     {
         parent::__construct();
         $this->load->model('comments_model', '', TRUE);
+    }
+
+    function getComment()
+    {
+
+        $site = $this->input->post('site');
+        $page = $this->input->post('page');
+
+        if ($site == "meatballs") {
+            echo $this->comments_model->getComments($page);
+        } else {
+            echo $this->comments_model->getComments($page);
+        }
+
     }
 
 
@@ -44,11 +58,9 @@ class Comments extends CI_Controller
 
             $this->comments_model->delComments($cid);
             redirect_back();
-        }
-        else{
+        } else {
             echo 'Not logged in fool!';
         }
-
 
 
     }

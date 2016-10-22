@@ -126,6 +126,12 @@ class Members extends CI_Controller
         }
     }
 
+    public function get_member_id()
+    {
+        $session_data = $this->session->userdata('logged_in');
+        echo $session_data['id'];
+    }
+
 
     function checkDatabase($username, $password)
     {
