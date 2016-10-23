@@ -19,46 +19,36 @@ class Comments extends CI_Controller
     function getComment()
     {
 
-        $site = $this->input->post('site');
+        $page = $this->input->post('page');
 
-        if ($site == "meatballs") {
-            echo $this->comments_model->getComments('0');
+        if ($page == '0') {
+            echo $this->comments_model->getComments($page);
         } else {
-            echo $this->comments_model->getComments('1');
+            echo $this->comments_model->getComments($page);
         }
 
     }
 
     function addComment()
     {
-        $this->form_validation->set_rules('comment', 'Comment', 'trim|required|xss_clean');
 
-        if ($this->form_validation->run() == FALSE) {
+        $comment = strip_tags($this->input->post('comment'));
+        $page = $this->input->post('page');
+        $session = $this->session->userdata('logged_in');
+        $membersid = $session['id'];
 
-            $this->session->set_flashdata('validation_errors_comments', validation_errors());
-            redirect_back();
-        } else {
-            $comment = strip_tags($this->input->post('comment'));
-            $page = $this->input->post('site');
-            $membersid = $this->input->post('membersid');
+        $this->comments_model->addComments($comment, $page, $membersid);
 
-            $this->comments_model->addComments($comment, $page, $membersid);
-            redirect_back();
-        }
     }
 
-    function delComment($userid, $cid)
+
+
+    function delComment()
     {
 
-        $session = $this->session->userdata('logged_in');
+        $cid = $this->input->post('delcomment');
 
-        if ($session['id'] === $userid) {
-
-            $this->comments_model->delComments($cid);
-            redirect_back();
-        } else {
-            echo 'Not logged in fool!';
-        }
+        $this->comments_model->delComments($cid);
 
     }
 

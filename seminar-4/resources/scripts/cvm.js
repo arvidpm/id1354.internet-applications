@@ -11,77 +11,63 @@ var CommentsViewModel = function () {
     self.commentText = ko.observable("");
 
 
-    self.comments.push({
-        author: 'Arvid',
-        comment: 'ContentContent',
-        cid: 1,
-        canDelete: true
+    var pathArray = window.location.pathname.split( '/' );
+    var site = pathArray[5];
+    var data;
+
+    if(site=='meatballs')
+        data = {'page': '0'};
+    else
+        data = {'page': '1'};
+
+
+    $.post('http://localhost/id1354/seminar-4/Members/get_member_id', function (secondData) {
+
+        /* Get comments when loading page */
+        $.post('http://localhost/id1354/seminar-4/Comments/getComment', data, function (data) {
+
+            for (var i in data) {
+                if (data[i].id == secondData) {
+
+                    self.comments.push
+                    ({
+                        author: data[i].username,
+                        comment: data[i].comment,
+                        cid: data[i].cid,
+                        canDelete: true
+                    });
+
+                } else {
+
+                    self.comments.push
+                    ({
+                        author: data[i].username,
+                        comment: data[i].comment,
+                        cid: data[i].cid,
+                        canDelete: false
+                    });
+                }
+            }
+        }, 'json');
     });
 
-    self.comments.push({
-        author: 'Bertil',
-        comment: 'Content2Content2',
-        cid: 1,
-        canDelete: true
-    });
 
-
-    var data = {"site": "meatballs", "page": "0"};
-
-    /* Get comments when loading page */
-    $.post("http://localhost/id1354/seminar-4/Comments/getComment", data, function (data) {
-        for (var i in data) {
-            self.comments.push
-            ({
-                author: data[i].username,
-                comment: data[i].comment,
-                cid: data[i].cid,
-                canDelete: true
-            });
+    /* Add comment to database (updated directly in client via long pollig) */
+    self.addComment = function () {
+        if(!(self.commentText().length == 0)) {
+            data['comment'] = self.commentText();
+            $.post('http://localhost/id1354/seminar-4/Comments/addComment', data, 'json');
         }
-    });
+        self.commentText("")
+    };
 
 
-    /*
-     var currentLocation = window.location.hash;
+    self.delComment = function (comment) {
 
-     console.log(currentLocation);
+        data['delcomment'] = comment;
+        $.post('http://localhost/id1354/seminar-4/Comments/delComment', data, 'json');
 
-     if (currentLocation == "meatballs")
-     var postData = {"site": "meatballs", "page": "0"};
-     else
-     var postData = {"site": "pancakes", "page": "1"};
-
-
-     var postData = {"site": "meatballs", "page": "0"};
-
-     $.post("Members/get_member_id", function (secondData) {
-
-     $.post("Comments/getComment", postData, function (data) {
-     for (var i in data) {
-     if (data[i].id == secondData) {
-     self.comments.push
-     ({
-     author: data[i].username,
-     comment: data[i].comment,
-     cid: data[i].cid,
-     canDelete: true
-     });
-
-     } else {
-     self.comments.push
-     ({
-     author: data[i].username,
-     comment: data[i].comment,
-     cid: data[i].cid,
-     canDelete: false
-     });
-     }
-     }
-     }, "json");
-     });
-
-     */
+    };
 
 };
 

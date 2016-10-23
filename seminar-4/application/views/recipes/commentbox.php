@@ -8,6 +8,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <li>
             <div class="commenterImage">
                 <img src="<?php echo base_url('resources/images/comment_placeholder.jpg') ?> " alt="placeholder picture" />
+
+                <div data-bind="if: canDelete">
+                    <a data-bind="click : $parent.delComment" href=""><img src="<?php echo base_url('resources/images/trashcan.png') ?>" alt="trashcan icon"></a>
+                </div>
+
+
             </div>
             <div class="commentText">
                 <p data-bind="text: comment"></p>
@@ -15,9 +21,31 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             </div>
         </li>
         <!-- /ko -->
-
     </ul>
 
+
+    <form class="form-inline" role="form" accept-charset="utf-8">
+
+    <?php
+    if ($this->session->userdata('logged_in')) {
+
+        echo
+        '<div class="form-group">
+            <input data-bind="textInput: commentText" class="form-control" type="text" placeholder="Your comment" name="comment" />
+        </div>
+        <div class="form-group">
+            <button data-bind="click: addComment" class="btn btn-default" type="submit">Post</button>
+        </div>';
+
+    } else {
+
+        echo '<div class="form-group">
+                <input class="form-control" type="text" placeholder="Log in to comment!"/>
+               </div>';
+    }
+    ?>
+
+    </form>
 
 
 </div>
