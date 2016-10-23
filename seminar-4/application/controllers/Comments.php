@@ -21,8 +21,6 @@ class Comments extends CI_Controller
 
         $site = $this->input->post('site');
 
-        echo $site;
-
         if ($site == "meatballs") {
             echo $this->comments_model->getComments('0');
         } else {
@@ -30,7 +28,6 @@ class Comments extends CI_Controller
         }
 
     }
-
 
     function addComment()
     {
@@ -62,7 +59,6 @@ class Comments extends CI_Controller
         } else {
             echo 'Not logged in fool!';
         }
-
 
     }
 

@@ -19,9 +19,9 @@ class Comments_model extends CI_Model
 
         $query = $this->db->get();
 
-        $jsonresult = json_encode($query->result());
+        $result = json_encode($query->result());
 
-        return $jsonresult;
+        return $result;
 
     }
 
