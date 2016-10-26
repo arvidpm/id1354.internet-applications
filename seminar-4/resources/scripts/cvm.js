@@ -57,15 +57,26 @@ var CommentsViewModel = function () {
         if(!(self.commentText().length == 0)) {
             data['comment'] = self.commentText();
             $.post('http://localhost/id1354/seminar-4/Comments/addComment', data, 'json');
+
         }
         self.commentText("")
     };
 
 
-    self.delComment = function (comment) {
+    self.delComment = function (CommentsViewModel) {
 
-        data['delcomment'] = comment;
-        $.post('http://localhost/id1354/seminar-4/Comments/delComment', data, 'json');
+        var target;
+
+        if (event.target) target = event.target;
+        else if (event.srcElement) target = event.srcElement;
+
+        if (target.nodeType == 3) // defeat Safari bug
+            target = target.parentNode;
+
+        target.parentNode.innerHTML = "fake";
+
+        //data['delcomment'] = cid;
+        //$.post('http://localhost/id1354/seminar-4/Comments/delComment', data, 'json');
 
     };
 

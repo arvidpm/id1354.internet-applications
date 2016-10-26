@@ -47,7 +47,6 @@ class Comments extends CI_Controller
     {
 
         $cid = $this->input->post('delcomment');
-
         $this->comments_model->delComments($cid);
 
     }

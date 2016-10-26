@@ -10,10 +10,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <img src="<?php echo base_url('resources/images/comment_placeholder.jpg') ?> " alt="placeholder picture" />
 
                 <div data-bind="if: canDelete">
-                    <a data-bind="click : $parent.delComment" href=""><img src="<?php echo base_url('resources/images/trashcan.png') ?>" alt="trashcan icon"></a>
+                    <a href="http://localhost/id1354/seminar-4/Comments/delComment">
+                        <img src="<?php echo base_url('resources/images/trashcan.png') ?>"
+                             alt="trashcan icon"> <p data-bind="text: cid" /> </a>
                 </div>
-
-
             </div>
             <div class="commentText">
                 <p data-bind="text: comment"></p>
