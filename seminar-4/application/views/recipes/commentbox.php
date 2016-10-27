@@ -7,11 +7,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <!-- ko foreach: comments -->
         <li>
             <div class="commenterImage">
-                <img src="<?php echo base_url('resources/images/comment_placeholder.jpg') ?> " alt="placeholder picture" />
+                <img src="<?php echo base_url('resources/images/comment_placeholder.jpg') ?>"
+                     alt="placeholder picture" />
 
                 <div data-bind="if: canDelete">
-                    <a href="">
-                        <img data-bind="attr: {id: cid}, text: cid, click: $parent.delComment" src="<?php echo base_url('resources/images/trashcan.png') ?>"
+                    <a href="#">
+                        <img data-bind="attr: {id: cid}, click: $parent.delComment"
+                             src="<?php echo base_url('resources/images/trashcan.png') ?>"
                              alt="trashcan icon"></a>
                 </div>
             </div>
@@ -21,8 +23,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             </div>
         </li>
         <!-- /ko -->
-    </ul>
 
+    </ul>
 
     <form class="form-inline" role="form" accept-charset="utf-8">
 
@@ -31,7 +33,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
         echo
         '<div class="form-group">
-            <input data-bind="textInput: commentText" class="form-control" type="text" placeholder="Your comment" name="comment" />
+            <input data-bind="textInput: commentText" 
+            class="form-control" type="text" placeholder="Your comment" name="comment" />
         </div>
         <div class="form-group">
             <button data-bind="click: addComment" class="btn btn-default" type="submit">Post</button>

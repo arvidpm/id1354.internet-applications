@@ -16,7 +16,7 @@ class Comments_model extends CI_Model
         $this->db->from('comments');
         $this->db->join('members', 'members.id = comments.user');
         $this->db->where('page', $site);
-        $this->db->order_by('cid', 'desc');
+        $this->db->order_by('cid', 'asc');
 
         $query = $this->db->get();
 
@@ -35,7 +35,11 @@ class Comments_model extends CI_Model
             'user' => $membersid
         );
 
-        $this->db->insert('comments', $commentData);
+        $query = $this->db->insert('comments', $commentData);
+
+        $result = json_encode($query->result());
+
+        return $result;
 
     }
 

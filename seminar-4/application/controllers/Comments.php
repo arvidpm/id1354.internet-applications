@@ -37,7 +37,7 @@ class Comments extends CI_Controller
         $session = $this->session->userdata('logged_in');
         $membersid = $session['id'];
 
-        $this->comments_model->addComments($comment, $page, $membersid);
+        echo $this->comments_model->addComments($comment, $page, $membersid);
 
     }
 

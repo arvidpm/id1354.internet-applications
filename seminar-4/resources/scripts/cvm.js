@@ -4,17 +4,23 @@
  * This is the Comments ViewModel powered by KnockoutJS and JQuery
  */
 
+/* Called when document finished loading */
 $(document).ready(function() {
 
     var CommentsViewModel = function () {
 
+        /* Creating observables */
         var self = this;
         self.comments = ko.observableArray([]);
         self.commentText = ko.observable("");
 
-
+        /* pathArray contains full path split into elements.
+        * We can target 'meatballs' or 'pancakes' by targeting
+        * the last element in the array
+        */
         var pathArray = window.location.pathname.split('/');
         var site = pathArray[5];
+        var base_url = 'http://localhost/id1354/seminar-4/';
         var data;
 
         if (site == 'meatballs')
@@ -23,12 +29,14 @@ $(document).ready(function() {
             data = {'page': '1'};
 
 
-        $.post('http://localhost/id1354/seminar-4/Members/get_member_id', function (secondData) {
+        $.post(base_url+'Members/get_member_id', function (secondData) {
 
-            /* Get comments when loading page */
-            $.post('http://localhost/id1354/seminar-4/Comments/getComment', data, function (data) {
+            /* Loading comments when page finished loading */
+            $.post(base_url+'Comments/getComment', data, function (data) {
 
                 for (var i in data) {
+
+                    /* if comment author is the one logged in */
                     if (data[i].id == secondData) {
 
                         self.comments.push
@@ -38,9 +46,10 @@ $(document).ready(function() {
                             cid: data[i].cid,
                             canDelete: true
                         });
+                    }
 
-                    } else {
-
+                    /* else we just push comments without the ability to delete */
+                    else {
                         self.comments.push
                         ({
                             author: data[i].username,
@@ -58,10 +67,31 @@ $(document).ready(function() {
         self.addComment = function () {
             if (!(self.commentText().length == 0)) {
                 data['comment'] = self.commentText();
-                $.post('http://localhost/id1354/seminar-4/Comments/addComment', data, 'json');
-                self.commentText.add(commentText);
-            }
-            self.commentText("")
+                $.post(base_url+'Comments/addComment', data,
+
+                    /* function (returnedData) {
+
+                        self.comments.push
+                        ({
+                            author: returnedData.username,
+                            comment: self.commentText(),
+                            cid: returnedData.cid,
+                            canDelete: true
+                        });
+
+                }*/ 'json');
+
+                /* This updates knockout view */
+                self.comments.push
+                ({
+                    author: "",
+                    comment: self.commentText(),
+                    cid: "",
+                    canDelete: true
+                });
+
+            } self.commentText("")
+
         }.bind(self);
 
         /* Delete comment from database, updated locally in view */
@@ -69,8 +99,9 @@ $(document).ready(function() {
 
             var element = event.target;
             data['delcomment'] = element.id;
-            $.post('http://localhost/id1354/seminar-4/Comments/delComment', data, 'json');
+            $.post(base_url+'Comments/delComment', data, 'json');
 
+            /* This updates knockout view */
             self.comments.remove(comments);
 
         }.bind(self);
