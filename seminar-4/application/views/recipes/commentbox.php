@@ -8,7 +8,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <li>
             <div class="commenterImage">
                 <img src="<?php echo base_url('resources/images/comment_placeholder.jpg') ?>"
-                     alt="placeholder picture" />
+                     alt="placeholder picture"/>
 
                 <div data-bind="if: canDelete">
                     <a href="#">
@@ -28,11 +28,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
     <form class="form-inline" role="form" accept-charset="utf-8">
 
-    <?php
-    if ($this->session->userdata('logged_in')) {
+        <?php
+        if ($this->session->userdata('logged_in')) {
 
-        echo
-        '<div class="form-group">
+            echo
+            '<div class="form-group">
             <input data-bind="textInput: commentText" 
             class="form-control" type="text" placeholder="Your comment" name="comment" />
         </div>
@@ -40,13 +40,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <button data-bind="click: addComment" class="btn btn-default" type="submit">Post</button>
         </div>';
 
-    } else {
+        } else {
 
-        echo '<div class="form-group">
+            echo '<div class="form-group">
                 <input class="form-control" type="text" placeholder="Log in to comment!"/>
                </div>';
-    }
-    ?>
+        }
+        ?>
 
     </form>
 

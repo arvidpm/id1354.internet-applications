@@ -20,12 +20,7 @@ class Comments extends CI_Controller
     {
 
         $page = $this->input->post('page');
-
-        if ($page == '0') {
-            echo $this->comments_model->getComments($page);
-        } else {
-            echo $this->comments_model->getComments($page);
-        }
+        echo $this->comments_model->getComments($page);
 
     }
 
@@ -40,7 +35,6 @@ class Comments extends CI_Controller
         echo $this->comments_model->addComments($comment, $page, $membersid);
 
     }
-
 
 
     function delComment()

@@ -5,7 +5,7 @@
  */
 
 /* Called when document finished loading */
-$(document).ready(function() {
+$(document).ready(function () {
 
     var CommentsViewModel = function () {
 
@@ -15,9 +15,9 @@ $(document).ready(function() {
         self.commentText = ko.observable("");
 
         /* pathArray contains full path split into elements.
-        * We can target 'meatballs' or 'pancakes' by targeting
-        * the last element in the array
-        */
+         * We can target 'meatballs' or 'pancakes' by targeting
+         * the last element in the array
+         */
         var pathArray = window.location.pathname.split('/');
         var site = pathArray[5];
         var base_url = 'http://localhost/id1354/seminar-4/';
@@ -29,10 +29,10 @@ $(document).ready(function() {
             data = {'page': '1'};
 
 
-        $.post(base_url+'Members/get_member_id', function (secondData) {
+        $.post(base_url + 'Members/get_member_id', function (secondData) {
 
             /* Loading comments when page finished loading */
-            $.post(base_url+'Comments/getComment', data, function (data) {
+            $.post(base_url + 'Comments/getComment', data, function (data) {
 
                 for (var i in data) {
 
@@ -67,19 +67,19 @@ $(document).ready(function() {
         self.addComment = function () {
             if (!(self.commentText().length == 0)) {
                 data['comment'] = self.commentText();
-                $.post(base_url+'Comments/addComment', data,
+                $.post(base_url + 'Comments/addComment', data,
 
                     /* function (returnedData) {
 
-                        self.comments.push
-                        ({
-                            author: returnedData.username,
-                            comment: self.commentText(),
-                            cid: returnedData.cid,
-                            canDelete: true
-                        });
+                     self.comments.push
+                     ({
+                     author: returnedData.username,
+                     comment: self.commentText(),
+                     cid: returnedData.cid,
+                     canDelete: true
+                     });
 
-                }*/ 'json');
+                     }*/ 'json');
 
                 /* This updates knockout view */
                 self.comments.push
@@ -90,7 +90,8 @@ $(document).ready(function() {
                     canDelete: true
                 });
 
-            } self.commentText("")
+            }
+            self.commentText("")
 
         }.bind(self);
 
@@ -99,7 +100,7 @@ $(document).ready(function() {
 
             var element = event.target;
             data['delcomment'] = element.id;
-            $.post(base_url+'Comments/delComment', data, 'json');
+            $.post(base_url + 'Comments/delComment', data, 'json');
 
             /* This updates knockout view */
             self.comments.remove(comments);
