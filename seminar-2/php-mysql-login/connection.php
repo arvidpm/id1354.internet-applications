@@ -1,11 +1,15 @@
 <?php
 
+/*
+ * connection.php handles the database connection
+ * */
+
 $servername = "localhost";
 $username = "root";
 $password = "password";
 $dbname = "id1354";
 
-# Establish connection to a local database
+# Establish connection to a local database using defined params
 $dbCon = mysqli_connect($servername, $username, $password, $dbname);
 
 

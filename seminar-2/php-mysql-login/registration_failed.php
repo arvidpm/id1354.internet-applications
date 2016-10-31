@@ -35,7 +35,7 @@ include_once("session_start.php");
             <li><a href="../index.php">Home</a></li>
             <li><a href="../calendar.php">Calendar</a></li>
             <li><a href="signin.php">Sign In</a></li>
-            <?php if(isset($_SESSION['id']) ){
+            <?php if (isset($_SESSION['id'])) {
                 echo '<li><a href="logged_out.php">Log out</a></li>';
             } ?>
         </ul>

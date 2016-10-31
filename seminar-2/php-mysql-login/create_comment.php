@@ -4,6 +4,11 @@
  * User: arvid
  * Date: 2016-09-16
  * Time: 12:54
+ *
+ * create_comment.php handles creation of comments by establishing a database connection,
+ * fetching page id, user id and comment content and sending a query.
+ * Page is then refreshed to display comment.
+ *
  */
 
 include_once("session_start.php");
@@ -19,7 +24,7 @@ $result = mysqli_query($dbCon, $create_query) or die("Failed" . mysqli_error());
 
 if ($result && $page === 0) {
     header('Location: ../recipes/meatballs.php');
-} else{
+} else {
     header('Location: ../recipes/pancakes.php');
 }
 

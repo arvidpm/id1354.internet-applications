@@ -6,7 +6,7 @@
  * Time: 16:21
  */
 
-# Disable error reporting
+# Suppress error reporting
 error_reporting(E_ALL & ~E_NOTICE);
 
 # Start session

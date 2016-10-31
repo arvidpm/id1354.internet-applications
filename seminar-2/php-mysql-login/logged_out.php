@@ -4,6 +4,9 @@
  * User: arvid
  * Date: 2016-09-15
  * Time: 23:04
+ *
+ * logged_out.php destroys session and redirecting user to index page.
+ *
  */
 
 include_once("session_start.php");
