@@ -29,7 +29,7 @@ $(document).ready(function () {
             data = {'page': '1'};
 
 
-        $.post(base_url + 'Members/get_member_id', function (secondData) {
+        var test = $.post(base_url + 'Members/get_member_id', function (secondData) {
 
             /* Loading comments when page finished loading */
             $.post(base_url + 'Comments/getComment', data, function (data) {

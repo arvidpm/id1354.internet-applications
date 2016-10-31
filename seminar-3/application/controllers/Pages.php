@@ -6,6 +6,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  * User: arvid
  * Date: 2016-09-28
  * Time: 14:04
+ *
+ * Default controller for index and calendar page.
+ * The pages are matched by url prefix, i.e. page/url/meatballs fetches pages/meatballs
+ *
  */
 class Pages extends CI_Controller
 {
@@ -17,7 +21,9 @@ class Pages extends CI_Controller
 
     }
 
-
+    /**
+     *    Displays the view fragments for this controller.
+     */
     public function view($page = 'index')
     {
 
