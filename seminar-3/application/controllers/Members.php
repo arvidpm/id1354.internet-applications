@@ -8,8 +8,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  */
 
 /**
- *    This controller handles all the calls to the model <code>
- *    User_model.php</code>
+ *    This controller handles all the calls to the model <code>Members_model.php</code>
  *
  *    NOTE!
  *
@@ -17,12 +16,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  *    back to the previous view displaying controller that the
  *    user came from.
  *
- * @see MY_url_helper.php
+ *    @see helpers/MY_url_helper.php
  *    courtesy of: Jonathan Azulay.
  */
 class Members extends CI_Controller
 {
 
+    /**
+     *	The default constructor. Loads the user model.
+     *	@see Members_model.php
+     */
     function __construct()
     {
         parent::__construct();
@@ -30,7 +33,9 @@ class Members extends CI_Controller
 
     }
 
-
+    /**
+     *	Displays the view fragments for the member sites
+     */
     public function view($page = 'index')
     {
 
@@ -49,19 +54,24 @@ class Members extends CI_Controller
 
     }
 
-
+    /**
+     *	Verifies if entered user input was correctly entered.
+     *
+     */
     function get_member()
     {
 
         /*
          * Provides Cross Site Script Hack filtering.
-         * This function is an alias for CI_Input::xss_clean(). For more info, please see the Input Library documentation.
+         * This function is an alias for CI_Input::xss_clean().
+         * For more info, please see the Input Library documentation.
+         *
          * */
         $this->form_validation->set_rules('username', 'Username', 'trim|required|max_length[20]|xss_clean');
         $this->form_validation->set_rules('password', 'Password', 'trim|required|xss_clean');
 
 
-        if ($this->form_validation->run() == FALSE) // Didn't validate
+        if ($this->form_validation->run() == FALSE) // Form validation failed, aborting
         {
 
             $this->session->set_flashdata('validation_errors', validation_errors());
@@ -69,7 +79,7 @@ class Members extends CI_Controller
 
         } else {
 
-            // set variables from the form
+            // Set variables from the form
             $username = strip_tags($this->input->post('username'));
             $password = strip_tags($this->input->post('password'));
 
@@ -88,17 +98,28 @@ class Members extends CI_Controller
         }
     }
 
-
+    /**
+     *	Handles all member registration calls.
+     *
+     */
     function create_member()
     {
 
-
+        /*
+         * Provides Cross Site Script Hack filtering.
+         * This function is an alias for CI_Input::xss_clean().
+         * For more info, please see the Input Library documentation.
+         *
+         * All fields are trimmed (of whitespaces), required and cleaned for Cross Site Script hacking.
+         * 're-password' have to match 'password'
+         *
+         * */
         $this->form_validation->set_rules('username', 'Username', 'trim|required|max_length[20]|xss_clean');
         $this->form_validation->set_rules('password', 'Password', 'trim|required|xss_clean');
         $this->form_validation->set_rules('re-password', 'Password Confirmation', 'trim|required|xss_clean|matches[password]');
 
 
-        if ($this->form_validation->run() == FALSE) // Didn't validate
+        if ($this->form_validation->run() == FALSE) // Form validation failed, aborting
         {
 
             $this->session->set_flashdata('validation_errors', validation_errors());
@@ -106,7 +127,7 @@ class Members extends CI_Controller
 
         } else {
 
-            // set variables from the form
+            // Set variables from the form
             $username = strip_tags($this->input->post('username'));
             $password = strip_tags($this->input->post('password'));
 
@@ -118,7 +139,9 @@ class Members extends CI_Controller
 
             } else {
 
-                // Failed creating user (this should never happen)
+                /* Failed creating user (this should never happen)
+                 * If so, should've happened during form validation.
+                 */
                 $this->session->set_flashdata('validation_errors', validation_errors());
                 redirect_back();
 
@@ -126,7 +149,15 @@ class Members extends CI_Controller
         }
     }
 
-
+    /**
+     *	Verifies if entered user input was correctly entered.
+     *
+     *  @param $username user input from username field.
+     *	@param $password user input from password field.
+     *	@return TRUE if username and password matched in database
+     *			FALSE if it didn't match.
+     *	@usedby Members::get_member()
+     */
     function checkDatabase($username, $password)
     {
 
@@ -157,7 +188,15 @@ class Members extends CI_Controller
         }
     }
 
-
+    /**
+     *	Call to Members_model.php that handles member registration.
+     *
+     *  @param $username user input from username field.
+     *	@param $password user input from password field.
+     *	@return TRUE if user registration was successful
+     *			FALSE if registration was unsuccessful (should rarely happen)
+     *	@usedby Members::create_member()
+     */
     function setDatabase($username, $password)
     {
 
@@ -175,7 +214,10 @@ class Members extends CI_Controller
         }
     }
 
-
+    /**
+     *	Unset the session data containing the users username
+     *	and id as well as destroying the session and redirecting the user back.
+     */
     function logout()
     {
 

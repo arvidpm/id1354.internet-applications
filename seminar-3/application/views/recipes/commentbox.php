@@ -4,20 +4,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <div class="actionBox">
     <ul class="commentList">
         <?php
-        /*
-         * ---------------- Members data -----------------
-         * $this->session->userdata('logged_in') contains:
-         *
-         * 'id' = members id
-         * 'username'  = members username
-         *
-         * ----------------- Recipe data -----------------
-         *
-         * 'recipe' => $page = 'meatballs' or 'pancakes'
-         * 'result' = comments array
-         * 'site' = 0 for meatballs, 1 for pancakes
-         *
-         * */
 
         if ($result) {
 
