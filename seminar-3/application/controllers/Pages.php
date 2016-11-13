@@ -22,7 +22,7 @@ class Pages extends CI_Controller
     }
 
     /**
-     *    Displays the view fragments for this controller.
+     *  Displays the view fragments for this controller.
      */
     public function view($page = 'index')
     {

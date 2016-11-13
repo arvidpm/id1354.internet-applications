@@ -12,9 +12,9 @@ class Recipes extends CI_Controller
 {
 
     /**
-     *	the controllers constructor. This function is only necessary
-     *	because the controller needs the comment model in order to
-     *	call it's functions.
+     *    the controllers constructor. This function is only necessary
+     *    because the controller needs the comment model in order to
+     *    call it's functions.
      */
     function __construct()
     {
@@ -23,7 +23,7 @@ class Recipes extends CI_Controller
     }
 
     /**
-     *	Displays the view fragments for this controller.
+     *    Displays the view fragments for this controller.
      */
     public function view($page = 'index')
     {
@@ -62,11 +62,11 @@ class Recipes extends CI_Controller
     }
 
     /**
-     *	Displays the meatballs fragment containing the recipe as well
-     *	the comments for that recipe.
+     *    Displays the meatballs fragment containing the recipe as well
+     *    the comments for that recipe.
      *
-     *  @param &$data a pointer to the data array.
-     *  @param $site holds the pageid value
+     * @param &$data a pointer to the data array.
+     * @param $site holds the pageid value
      */
     private function loadMeatballs(&$data, $site)
     {
@@ -78,11 +78,11 @@ class Recipes extends CI_Controller
     }
 
     /**
-     *	Displays the pancakes fragment containing the recipe as well
-     *	the comments for that recipe.
+     *    Displays the pancakes fragment containing the recipe as well
+     *    the comments for that recipe.
      *
-     *  @param &$data a pointer to the data array.
-     *  @param $site holds the pageid value
+     * @param &$data a pointer to the data array.
+     * @param $site holds the pageid value
      */
     private function loadPancakes(&$data, $site)
     {

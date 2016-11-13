@@ -16,15 +16,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  *    back to the previous view displaying controller that the
  *    user came from.
  *
- *    @see helpers/MY_url_helper.php
+ * @see helpers/MY_url_helper.php
  *    courtesy of: Jonathan Azulay.
  */
 class Members extends CI_Controller
 {
 
     /**
-     *	The default constructor. Loads the user model.
-     *	@see Members_model.php
+     *  The default constructor. Loads the user model.
+     * @see Members_model.php
      */
     function __construct()
     {
@@ -34,7 +34,7 @@ class Members extends CI_Controller
     }
 
     /**
-     *	Displays the view fragments for the member sites
+     *  Displays the view fragments for the member sites
      */
     public function view($page = 'index')
     {
@@ -55,8 +55,7 @@ class Members extends CI_Controller
     }
 
     /**
-     *	Verifies if entered user input was correctly entered.
-     *
+     *  Verifies if entered user input was correctly entered.
      */
     function get_member()
     {
@@ -99,8 +98,7 @@ class Members extends CI_Controller
     }
 
     /**
-     *	Handles all member registration calls.
-     *
+     *  Handles all member registration calls.
      */
     function create_member()
     {
@@ -112,7 +110,6 @@ class Members extends CI_Controller
          *
          * All fields are trimmed (of whitespaces), required and cleaned for Cross Site Script hacking.
          * 're-password' have to match 'password'
-         *
          * */
         $this->form_validation->set_rules('username', 'Username', 'trim|required|max_length[20]|xss_clean');
         $this->form_validation->set_rules('password', 'Password', 'trim|required|xss_clean');
@@ -150,13 +147,13 @@ class Members extends CI_Controller
     }
 
     /**
-     *	Verifies if entered user input was correctly entered.
+     *    Verifies if entered user input was correctly entered.
      *
-     *  @param $username user input from username field.
-     *	@param $password user input from password field.
-     *	@return TRUE if username and password matched in database
-     *			FALSE if it didn't match.
-     *	@usedby Members::get_member()
+     * @param $username user input from username field.
+     * @param $password user input from password field.
+     * @return TRUE if username and password matched in database
+     *            FALSE if it didn't match.
+     * @usedby Members::get_member()
      */
     function checkDatabase($username, $password)
     {
@@ -189,13 +186,13 @@ class Members extends CI_Controller
     }
 
     /**
-     *	Call to Members_model.php that handles member registration.
+     *    Call to Members_model.php that handles member registration.
      *
-     *  @param $username user input from username field.
-     *	@param $password user input from password field.
-     *	@return TRUE if user registration was successful
-     *			FALSE if registration was unsuccessful (should rarely happen)
-     *	@usedby Members::create_member()
+     * @param $username user input from username field.
+     * @param $password user input from password field.
+     * @return TRUE if user registration was successful
+     *            FALSE if registration was unsuccessful (should rarely happen)
+     * @usedby Members::create_member()
      */
     function setDatabase($username, $password)
     {
@@ -215,8 +212,8 @@ class Members extends CI_Controller
     }
 
     /**
-     *	Unset the session data containing the users username
-     *	and id as well as destroying the session and redirecting the user back.
+     *  Unset the session data containing the users username
+     *  and id as well as destroying the session and redirecting the user back.
      */
     function logout()
     {

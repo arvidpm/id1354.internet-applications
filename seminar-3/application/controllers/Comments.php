@@ -1,5 +1,6 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
+
 /**
  * Created by PhpStorm.
  * User: arvid
@@ -7,26 +8,25 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  * Time: 20:36
  *
  *
- *	This controller handles all the calls to the model <code>
- *	Comments_model.php</code>
+ *    This controller handles all the calls to the model <code>
+ *    Comments_model.php</code>
  *
- *	NOTE!
+ *    NOTE!
  *
- *	The <code>redirect_back()</code> functions sends the user
- *	back to the previous view displaying controller that the
- *	user came from.
+ *    The <code>redirect_back()</code> functions sends the user
+ *    back to the previous view displaying controller that the
+ *    user came from.
  *
- *	@see helpers/MY_url_helper.php
- *	courtesy of: Jonathan Azulay.
+ * @see helpers/MY_url_helper.php
+ *    courtesy of: Jonathan Azulay.
  *
  */
-
 class Comments extends CI_Controller
 {
 
     /**
-     *	The default constructor. Loads the comments model.
-     *	@see Comments_model.php
+     *    The default constructor. Loads the comments model.
+     * @see Comments_model.php
      */
     function __construct()
     {
@@ -35,10 +35,10 @@ class Comments extends CI_Controller
     }
 
     /**
-     *	Adds a comment to the database through the comments model
-     *	by information from user input and sending to the model.
+     *    Adds a comment to the database through the comments model
+     *    by information from user input and sending to the model.
      *
-     *	Displays validation errors if the any set rules were broken.
+     *    Displays validation errors if the any set rules were broken.
      */
     function addComment()
     {
@@ -59,11 +59,11 @@ class Comments extends CI_Controller
     }
 
     /**
-     *	Deletes a comment from the database through the comments model
-     *	by information from user input and sending to the model.
+     *    Deletes a comment from the database through the comments model
+     *    by information from user input and sending to the model.
      *
-     *	@param $cid retrieved by GET method, which is not optimal.
-     *  @param $userid retrieved by $session array
+     * @param $cid retrieved by GET method, which is not optimal.
+     * @param $userid retrieved by $session array
      */
     function delComment($userid, $cid)
     {
@@ -74,8 +74,7 @@ class Comments extends CI_Controller
 
             $this->comments_model->delComments($cid);
             redirect_back();
-        }
-        else{
+        } else {
             echo 'Not logged in fool!';
         }
 
