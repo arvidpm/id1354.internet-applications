@@ -7,10 +7,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  * Date: 2016-09-29
  * Time: 16:53
  *
- *
- *
  *  This model makes all the needed SQL queries to the database id1354-mvc.
- *  Data is fetched for the Comments and Recipes controllers (Comments.php and Recipes.php)
+ *  Data is fetched for the <code>Comments.php</code> and <code>Recipes.php</code> controllers.
  */
 class Comments_model extends CI_Model
 {
@@ -32,6 +30,7 @@ class Comments_model extends CI_Model
         $query = $this->db->get();
 
         return $query->result();
+
     }
 
     /**

@@ -7,9 +7,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  * Date: 2016-09-29
  * Time: 17:11
  *
- *  This model makes all the needed SQL queries to the database:
- *  recipe_mvc and the table: users and returns desired
- *  data to the controller Members.php
+ *  This model makes all the needed SQL queries to the database id1354-mvc.
+ *  Data is fetched for the <code>Members.php</code> controller.
  */
 class Members_model extends CI_Model
 {
@@ -67,7 +66,6 @@ class Members_model extends CI_Model
         return $hashed_password = password_hash($password, PASSWORD_DEFAULT);
     }
 
-    // Checks user password against hashed user password
     /**
      *  Checks user password against hashed user password stored in database
      *

@@ -8,8 +8,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  * Time: 20:36
  *
  *
- *    This controller handles all the calls to the model <code>
- *    Comments_model.php</code>
+ *    This controller handles all the calls to the model
+ *    <code>Comments_model.php</code>
  *
  *    NOTE!
  *
@@ -62,7 +62,7 @@ class Comments extends CI_Controller
      *    Deletes a comment from the database through the comments model
      *    by information from user input and sending to the model.
      *
-     * @param $cid retrieved by GET method, which is not optimal.
+     * @param $cid retrieved by GET, which is not optimal.
      * @param $userid retrieved by $session array
      */
     function delComment($userid, $cid)

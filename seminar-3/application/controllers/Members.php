@@ -5,10 +5,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  * User: arvid
  * Date: 2016-10-02
  * Time: 23:20
- */
-
-/**
- *    This controller handles all the calls to the model <code>Members_model.php</code>
+ *
+ *
+ *    This controller handles all the calls to the model
+ *    <code>Members_model.php</code>
  *
  *    NOTE!
  *
@@ -23,7 +23,7 @@ class Members extends CI_Controller
 {
 
     /**
-     *  The default constructor. Loads the user model.
+     *  The default constructor. Loads the members model.
      * @see Members_model.php
      */
     function __construct()
@@ -70,7 +70,7 @@ class Members extends CI_Controller
         $this->form_validation->set_rules('password', 'Password', 'trim|required|xss_clean');
 
 
-        if ($this->form_validation->run() == FALSE) // Form validation failed, aborting
+        if ($this->form_validation->run() == FALSE) // Didn't validate
         {
 
             $this->session->set_flashdata('validation_errors', validation_errors());
@@ -116,7 +116,7 @@ class Members extends CI_Controller
         $this->form_validation->set_rules('re-password', 'Password Confirmation', 'trim|required|xss_clean|matches[password]');
 
 
-        if ($this->form_validation->run() == FALSE) // Form validation failed, aborting
+        if ($this->form_validation->run() == FALSE) // Didn't validate
         {
 
             $this->session->set_flashdata('validation_errors', validation_errors());
