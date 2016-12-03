@@ -9,7 +9,7 @@ $(document).ready(function () {
 
     var CommentsViewModel = function () {
 
-        /* Creating observables */
+        /* Creating KnockOut observables */
         var self = this;
         self.comments = ko.observableArray([]);
         self.commentText = ko.observable("");
@@ -29,7 +29,7 @@ $(document).ready(function () {
             data = {'page': '1'};
 
 
-        var test = $.post(base_url + 'Members/get_member_id', function (secondData) {
+        $.post(base_url + 'Members/get_member_id', function (secondData) {
 
             /* Loading comments when page finished loading */
             $.post(base_url + 'Comments/getComment', data, function (data) {
@@ -69,7 +69,9 @@ $(document).ready(function () {
                 data['comment'] = self.commentText();
                 $.post(base_url + 'Comments/addComment', data,
 
-                    /* function (returnedData) {
+                    /* TODO some day...
+
+                     function (returnedData) {
 
                      self.comments.push
                      ({

@@ -11,16 +11,22 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Recipes extends CI_Controller
 {
 
+    /**
+     *    the controllers constructor. This function is only necessary
+     *    because the controller needs the comment model in order to
+     *    call it's functions.
+     */
     function __construct()
     {
         parent::__construct();
         $this->load->model('comments_model', '', TRUE);
     }
 
-
+    /**
+     *    Displays the view fragments for this controller.
+     */
     public function view($page = 'index')
     {
-
 
         if (!file_exists(APPPATH . 'views/recipes/' . $page . '.php')) {
             // Whoops, we don't have a page for that!
@@ -49,15 +55,29 @@ class Recipes extends CI_Controller
 
     }
 
+    /**
+     *    Displays the meatballs fragment containing the recipe data.
+     *
+     * @param &$data a pointer to the data array.
+     * @param $site holds the pageid value
+     */
     private function loadMeatballs(&$data, $site)
     {
+
         $this->load->view('recipes/meatballs');
         $data['site'] = $site;
 
     }
 
+    /**
+     *    Displays the pancakes fragment containing the recipe data.
+     *
+     * @param &$data a pointer to the data array.
+     * @param $site holds the pageid value
+     */
     private function loadPancakes(&$data, $site)
     {
+
         $this->load->view('recipes/pancakes');
         $data['site'] = $site;
 

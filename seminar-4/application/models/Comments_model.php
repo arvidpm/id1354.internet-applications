@@ -6,10 +6,20 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  * User: arvid
  * Date: 2016-09-29
  * Time: 16:53
+ *
+ *  This model makes all the needed SQL queries to the database id1354-js.
+ *  Data is fetched for the <code>Comments.php</code> and <code>Recipes.php</code> controllers.
  */
 class Comments_model extends CI_Model
 {
 
+    /**
+     *  Fetches information from tables with the specified requirements from
+     *  the database and returns the information in an array.
+     *
+     * @param $site contains a value 0-1 to get the desired comments.
+     * @return $result json encoded array containing the information from the tables.
+     */
     function getComments($site)
     {
         $this->db->select('cid, comment, page, members.id, username');
@@ -26,6 +36,15 @@ class Comments_model extends CI_Model
 
     }
 
+    /**
+     *  Inserts the the written comment, which site it was
+     *  written on and the author in the comments table.
+     *
+     * @param $comment the written text from user input
+     * @param $page information about which recipe it was written on.
+     * @param $membersid information about who the author was.
+     * @return $result json encoded array containing the information from the tables.
+     */
     function addComments($comment, $page, $membersid)
     {
 
@@ -43,6 +62,11 @@ class Comments_model extends CI_Model
 
     }
 
+    /**
+     *  Deletes a written comment, by using the comment id '$cid'
+     *
+     * @param $cid comment id
+     */
     function delComments($cid)
     {
 
