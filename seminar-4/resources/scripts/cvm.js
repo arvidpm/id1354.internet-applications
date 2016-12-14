@@ -19,7 +19,7 @@ $(document).ready(function () {
          * the last element in the array
          */
         var pathArray = window.location.pathname.split('/');
-        var site = pathArray[5];
+        var site = pathArray[pathArray.length-1];
         var base_url = 'http://localhost/id1354/seminar-4/';
         var data;
 
