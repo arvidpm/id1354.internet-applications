@@ -19,7 +19,7 @@ $(document).ready(function () {
          * the last element in the array
          */
         var pathArray = window.location.pathname.split('/');
-        var site = pathArray[pathArray.length-1];
+        var site = pathArray[pathArray.length - 1];
         var base_url = 'http://localhost/id1354/seminar-4/';
         var data;
 
@@ -66,22 +66,9 @@ $(document).ready(function () {
         /* Add comment to database */
         self.addComment = function () {
             if (!(self.commentText().length == 0)) {
+
                 data['comment'] = self.commentText();
-                $.post(base_url + 'Comments/addComment', data,
-
-                    /* TODO some day...
-
-                     function (returnedData) {
-
-                     self.comments.push
-                     ({
-                     author: returnedData.username,
-                     comment: self.commentText(),
-                     cid: returnedData.cid,
-                     canDelete: true
-                     });
-
-                     }*/ 'json');
+                $.post(base_url + 'Comments/addComment', data, 'json');
 
                 /* This updates knockout view */
                 self.comments.push
